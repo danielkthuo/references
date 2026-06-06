@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growing Deeper, Going Further — A Discipleship Curriculum</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* Core brand palette — deepened for contrast */
+    --gold:        #B8841E;
+    --gold-mid:    #D4A040;
+    --gold-bright: #E8B84B;
+    --gold-light:  #F5E4C0;
+    --gold-pale:   #FBF3E2;
+
+    /* Ink palette */
+    --deep:        #140F06;
+    --ink:         #1E1508;
+    --bark:        #4A2E0E;
+    --bark-mid:    #6B4520;
+    --muted:       #7A5A35;
+    --muted-light: #A07848;
+
+    /* Parchment palette */
+    --parchment:      #F6EDD8;
+    --parchment-dark: #E8D9BC;
+    --parchment-deep: #D8C8A0;
+    --white:          #FEFAF0;
+
+    /* Borders */
+    --border:        rgba(184,132,30,0.22);
+    --border-strong: rgba(184,132,30,0.50);
+    --border-bold:   rgba(184,132,30,0.75);
+
+    /* Phase colours — richer, higher contrast */
+    --phase1:      #144035;
+    --phase1-mid:  #1D5C4A;
+    --phase1-lite: #D4EDE6;
+    --phase1-text: #0A2920;
+
+    --phase2:      #1E2F62;
+    --phase2-mid:  #2B4280;
+    --phase2-lite: #D0D9F0;
+    --phase2-text: #0E1C40;
+
+    --phase3:      #5C1E1E;
+    --phase3-mid:  #802B2B;
+    --phase3-lite: #F0D0D0;
+    --phase3-text: #3A0F0F;
+
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--parchment);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #EDE0C0;
+    border-bottom: 2.5px solid var(--gold);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 58px;
+    box-shadow: 0 2px 16px rgba(74,46,14,0.14);
+  }
+  .nav-brand {
+    font-family: var(--serif); font-size: 1.2rem; color: var(--bark);
+    letter-spacing: 0.03em; font-style: italic; white-space: nowrap; font-weight: 600;
+  }
+  .nav-links {
+    display: flex; gap: 0; list-style: none; overflow-x: auto; scrollbar-width: none;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    display: block; padding: 0 1rem; height: 58px; line-height: 58px;
+    color: var(--bark); font-size: 0.72rem; letter-spacing: 0.1em;
+    text-decoration: none; text-transform: uppercase; white-space: nowrap;
+    transition: color 0.2s, background 0.2s; font-weight: 600;
+  }
+  .nav-links a:hover { color: var(--bark); background: rgba(184,132,30,0.18); }
+
+  /* ── PAGE WRAPPER ── */
+  main { padding-top: 58px; }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0D3028 0%, #144035 55%, #1A5040 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 5rem 2rem 4rem;
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(212,160,64,0.07) 60px),
+      repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(212,160,64,0.07) 60px);
+  }
+  .cover::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 65% 50% at 50% 35%, rgba(212,160,64,0.18) 0%, transparent 70%);
+  }
+  .cover-inner { position: relative; z-index: 1; max-width: 700px; }
+
+  .cover-ornament {
+    width: 60px; height: 1px; background: var(--gold-bright); margin: 0 auto 2rem;
+    position: relative;
+  }
+  .cover-ornament::before, .cover-ornament::after {
+    content: '✦'; position: absolute; top: 50%; transform: translateY(-50%);
+    color: var(--gold-bright); font-size: 0.5rem;
+  }
+  .cover-ornament::before { left: -16px; }
+  .cover-ornament::after  { right: -16px; }
+
+  .cover-label {
+    font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--gold-bright); margin-bottom: 1.5rem; font-weight: 600;
+  }
+  .cover h1 {
+    font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 400; color: #F5EDD8; line-height: 1.1; margin-bottom: 0.5rem;
+  }
+  .cover h1 em { color: var(--gold-bright); font-style: italic; }
+  .cover-subtitle {
+    font-family: var(--serif); font-size: 1.3rem; color: #CBE8D8;
+    font-style: italic; margin-bottom: 2.5rem;
+  }
+  .cover-rule {
+    width: 120px; height: 1px; background: rgba(232,184,75,0.8); margin: 0 auto 2rem;
+  }
+  .cover-meta {
+    font-size: 0.78rem; letter-spacing: 0.1em; color: #A8D4BE;
+    text-transform: uppercase; margin-bottom: 0.75rem; line-height: 2; font-weight: 500;
+  }
+  .cover-verse {
+    font-family: var(--serif); font-size: 1rem; font-style: italic;
+    color: #C0DFD0; max-width: 490px; margin: 2rem auto 0;
+    border-left: 2px solid rgba(232,184,75,0.85); padding-left: 1.25rem; text-align: left;
+  }
+  .cover-verse cite { display: block; font-size: 0.78rem; margin-top: 0.5rem; color: var(--gold-bright); font-style: normal; letter-spacing: 0.05em; font-weight: 600; }
+
+  .author-block {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.1rem; margin: 1.5rem 0 0.5rem;
+  }
+  .author-img {
+    width: 72px; height: 72px; border-radius: 50%;
+    border: 2px solid var(--gold-bright);
+    object-fit: cover; object-position: center top;
+    box-shadow: 0 0 0 4px rgba(232,184,75,0.18);
+    flex-shrink: 0;
+  }
+  .author-info { text-align: left; }
+  .author-name { font-family: var(--serif); font-size: 1.05rem; color: #F5EDD8; font-weight: 600; line-height: 1.2; }
+  .author-role { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: #9AC4AE; font-weight: 500; margin-top: 0.2rem; }
+
+  .badge-row { display: flex; gap: 1rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap; }
+  .badge {
+    border: 1.5px solid rgba(232,184,75,0.70); color: var(--gold-bright);
+    background: rgba(232,184,75,0.10);
+    padding: 0.35rem 1.2rem; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    font-family: var(--sans); font-weight: 600;
+  }
+
+  /* ── SECTION ── */
+  section { padding: 5rem 2rem; }
+  .container      { max-width: 820px; margin: 0 auto; }
+  .container-wide { max-width: 1040px; margin: 0 auto; }
+
+  .section-label {
+    font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; font-weight: 700;
+  }
+  .section-title {
+    font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.2;
+  }
+  .section-rule {
+    width: 40px; height: 2.5px; background: var(--gold); margin-bottom: 2rem;
+  }
+  p { margin-bottom: 1rem; color: var(--ink); }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── INTRO ── */
+  #intro { background: var(--white); }
+  .intro-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem;
+  }
+  @media (max-width: 640px) { .intro-grid { grid-template-columns: 1fr; } }
+
+  .info-block { border-left: 3px solid var(--gold); padding-left: 1.35rem; }
+  .info-block h3 {
+    font-family: var(--serif); font-size: 1.25rem; font-weight: 600;
+    color: var(--bark); margin-bottom: 0.6rem;
+  }
+
+  /* ── SESSION TABLE ── */
+  .session-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.88rem; }
+  .session-table th {
+    background: var(--deep); color: var(--gold-bright); font-family: var(--sans);
+    font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.65rem 0.9rem; text-align: left; font-weight: 600;
+  }
+  .session-table td { padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--parchment-dark); color: var(--ink); }
+  .session-table tr:last-child td { border-bottom: none; }
+  .session-table tr:nth-child(even) td { background: var(--parchment); }
+  .time-pill {
+    background: var(--gold-light); color: var(--bark);
+    border: 1px solid rgba(184,132,30,0.35);
+    font-size: 0.7rem; padding: 0.15rem 0.55rem;
+    font-weight: 600; white-space: nowrap;
+  }
+
+  /* ── PHASE HEADER ── */
+  .phase-header {
+    padding: 4.5rem 2rem 3.5rem;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .phase-header.p1 { background: linear-gradient(135deg, #0D3028 0%, var(--phase1) 60%, #1A5040 100%); }
+  .phase-header.p2 { background: linear-gradient(135deg, #141E48 0%, var(--phase2) 60%, #253870 100%); }
+  .phase-header.p3 { background: linear-gradient(135deg, #3A0F0F 0%, var(--phase3) 60%, #722020 100%); }
+
+  .phase-num {
+    font-family: var(--serif); font-size: 7rem; font-weight: 400;
+    opacity: 0.07; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    color: white; line-height: 1; pointer-events: none; white-space: nowrap;
+  }
+  .phase-inner { position: relative; z-index: 1; }
+  .phase-kicker {
+    font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85); margin-bottom: 0.75rem; font-weight: 600;
+  }
+  .phase-title {
+    font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.4rem);
+    color: #FFFFFF; font-weight: 500; margin-bottom: 0.5rem;
+  }
+  .phase-desc { font-family: var(--serif); font-style: italic; color: rgba(255,255,255,0.92); font-size: 1.1rem; }
+
+  /* ── MODULE DETAIL ── */
+  .module-detail { background: var(--white); padding: 4.5rem 2rem; }
+  .module-detail:nth-child(even) { background: var(--parchment); }
+
+  .detail-header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1.5px solid var(--border-strong); }
+  .detail-num { font-family: var(--sans); font-size: 0.72rem; color: var(--gold); letter-spacing: 0.12em; margin-bottom: 0.3rem; font-weight: 700; text-transform: uppercase; }
+  .detail-title {
+    font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 500; color: var(--ink); margin-bottom: 0.35rem;
+  }
+  .detail-sub { font-family: var(--serif); font-style: italic; color: var(--bark-mid); font-size: 1.05rem; }
+
+  /* ── BLOCKQUOTE ── */
+  .blockquote {
+    background: var(--gold-pale); border-left: 4px solid var(--gold);
+    padding: 1.35rem 1.6rem; margin: 1.75rem 0;
+    font-family: var(--serif); font-style: italic; font-size: 1.08rem; color: var(--bark);
+  }
+  .blockquote cite { display: block; font-size: 0.8rem; margin-top: 0.5rem; color: var(--gold); font-style: normal; letter-spacing: 0.07em; font-weight: 700; }
+
+  /* ── CONTENT HEADINGS ── */
+  .content-h3 {
+    font-family: var(--serif); font-size: 1.2rem; font-weight: 600;
+    color: var(--bark); margin: 1.75rem 0 0.7rem;
+  }
+  .content-h4 {
+    font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold); margin: 1.5rem 0 0.6rem; font-weight: 700;
+    border-bottom: 1px solid var(--border); padding-bottom: 0.35rem;
+  }
+
+  /* ── TRUTH GRID ── */
+  .truth-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem; margin: 1rem 0 1.75rem;
+  }
+  .truth-item {
+    background: var(--parchment); border: 1.5px solid var(--border-strong);
+    padding: 0.85rem 1.1rem; color: var(--ink); font-size: 0.9rem; font-weight: 500;
+  }
+  .truth-ref { font-size: 0.72rem; color: var(--gold); letter-spacing: 0.05em; margin-top: 0.3rem; font-weight: 700; }
+
+  /* ── SOAP GRID ── */
+  .soap-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    background: var(--border-bold); margin: 1.25rem 0; overflow: hidden;
+  }
+  .soap-cell { background: var(--white); padding: 1.1rem; }
+  .soap-letter {
+    font-family: var(--serif); font-size: 2.8rem; font-weight: 400;
+    color: var(--gold); line-height: 1; margin-bottom: 0.3rem;
+  }
+  .soap-word { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--bark); margin-bottom: 0.5rem; font-weight: 700; }
+  .soap-desc { font-size: 0.84rem; color: var(--ink); line-height: 1.5; }
+
+  /* ── PHASE BADGES ── */
+  .phase-badge {
+    display: inline-block; font-size: 0.65rem; letter-spacing: 0.14em;
+    text-transform: uppercase; padding: 0.3rem 0.75rem; margin-bottom: 1.75rem;
+    font-family: var(--sans); font-weight: 700;
+  }
+  .p1-badge { background: var(--phase1-lite); color: var(--phase1-text); border: 1.5px solid rgba(20,64,53,0.35); }
+  .p2-badge { background: var(--phase2-lite); color: var(--phase2-text); border: 1.5px solid rgba(30,47,98,0.35); }
+  .p3-badge { background: var(--phase3-lite); color: var(--phase3-text); border: 1.5px solid rgba(92,30,30,0.35); }
+
+  /* ── DISC LIST ── */
+  .disc-list { list-style: none; margin: 0.75rem 0; }
+  .disc-list li { padding: 0.35rem 0 0.35rem 1.4rem; position: relative; font-size: 0.93rem; color: var(--ink); }
+  .disc-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+  .disc-list li strong { color: var(--bark); font-weight: 600; }
+
+  /* ── STRATEGY GRID ── */
+  .strategy-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem; margin: 1.25rem 0;
+  }
+  .strategy-card {
+    background: var(--parchment); border: 1.5px solid var(--border-strong);
+    padding: 1.1rem; text-align: center;
+  }
+  .strategy-num {
+    font-family: var(--serif); font-size: 2rem; color: var(--gold);
+    line-height: 1; margin-bottom: 0.4rem;
+  }
+  .strategy-title { font-size: 0.82rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; }
+  .strategy-desc  { font-size: 0.78rem; color: var(--bark-mid); line-height: 1.5; }
+
+  /* ── SHAPE ROW ── */
+  .shape-row {
+    display: flex; gap: 0; margin: 1rem 0; overflow: hidden;
+    border: 1.5px solid var(--border-bold);
+  }
+  .shape-cell { flex: 1; padding: 1.1rem 0.75rem; border-right: 1.5px solid var(--border-bold); text-align: center; }
+  .shape-cell:last-child { border-right: none; }
+  .shape-letter { font-family: var(--serif); font-size: 2.2rem; color: var(--gold); line-height: 1; margin-bottom: 0.25rem; }
+  .shape-word   { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--bark); margin-bottom: 0.4rem; font-weight: 700; }
+  .shape-desc   { font-size: 0.74rem; color: var(--ink); line-height: 1.4; }
+
+  /* ── MENTOR NOTE ── */
+  .mentor-note {
+    background: rgba(184,132,30,0.08); border: 1.5px solid rgba(184,132,30,0.35);
+    border-left: 4px solid var(--gold);
+    padding: 1.1rem 1.35rem; margin: 1.5rem 0; font-size: 0.87rem; color: var(--bark);
+    font-style: italic;
+  }
+  .mentor-note strong { font-style: normal; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.4rem; font-weight: 700; }
+
+  /* ── ACTIVITIES BOX ── */
+  .activities-box {
+    background: #100B04; border: 1px solid rgba(184,132,30,0.30);
+    padding: 1.6rem; margin: 1.75rem 0;
+  }
+  .activities-box h4 {
+    font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold-bright); margin-bottom: 1rem; font-weight: 700;
+  }
+  .activities-box ul { list-style: none; }
+  .activities-box li {
+    padding: 0.45rem 0 0.45rem 1.4rem; position: relative;
+    font-size: 0.87rem; color: #EDE8DC; line-height: 1.55;
+  }
+  .activities-box li::before { content: '✦'; position: absolute; left: 0; color: var(--gold-bright); font-size: 0.5rem; top: 0.7rem; }
+  .activities-box li strong { color: var(--gold-bright); font-weight: 600; }
+
+  /* ── FIVE-C ── */
+  .five-c {
+    display: grid; grid-template-columns: repeat(5,1fr); gap: 2px;
+    background: var(--border-bold); margin: 1rem 0; overflow: hidden;
+  }
+  .five-c-item { background: var(--white); padding: 1.1rem 0.75rem; text-align: center; }
+  .five-c-letter { font-family: var(--serif); font-size: 2rem; color: var(--gold); }
+  .five-c-word   { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--bark); margin-top: 0.25rem; font-weight: 700; }
+
+  /* ── STAGES TIMELINE ── */
+  .stages-timeline {
+    display: flex; flex-direction: column; gap: 0; margin: 1rem 0;
+    border: 1.5px solid var(--border-bold);
+  }
+  .stage-row {
+    display: grid; grid-template-columns: 80px 1fr;
+    border-bottom: 1.5px solid var(--border-bold);
+  }
+  .stage-row:last-child { border-bottom: none; }
+  .stage-num {
+    background: var(--deep); display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 1.3rem; color: var(--gold-bright); padding: 0.85rem;
+    font-weight: 400;
+  }
+  .stage-content { padding: 0.85rem 1.1rem; }
+  .stage-title { font-weight: 600; font-size: 0.88rem; color: var(--ink); }
+  .stage-desc  { font-size: 0.82rem; color: var(--bark-mid); margin-top: 0.2rem; line-height: 1.5; }
+
+  /* ── CONTENTS ── */
+  #contents { background: #0D3028; }
+  #contents .section-title { color: #F5EDD8; }
+  #contents .section-label { color: var(--gold-bright); font-weight: 700; }
+  #contents .section-rule  { background: var(--gold-bright); }
+  .toc-phase { margin-bottom: 2.5rem; }
+  .toc-phase-title {
+    font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold-bright); padding-bottom: 0.55rem;
+    border-bottom: 1px solid rgba(232,184,75,0.40); margin-bottom: 1rem; font-weight: 700;
+  }
+  .toc-item {
+    display: flex; align-items: baseline; gap: 0.5rem;
+    padding: 0.5rem 0; border-bottom: 1px solid rgba(245,237,216,0.12);
+    text-decoration: none; color: #D8EFE4; transition: color 0.2s;
+  }
+  .toc-item:hover { color: var(--gold-bright); }
+  .toc-num   { font-family: var(--serif); font-size: 0.82rem; color: var(--gold-bright); min-width: 30px; font-weight: 600; }
+  .toc-name  { font-family: var(--serif); font-size: 0.98rem; }
+  .toc-weeks { margin-left: auto; font-size: 0.7rem; color: #8ABFA0; letter-spacing: 0.05em; white-space: nowrap; font-weight: 600; }
+
+  /* ── FRAMEWORK ── */
+  #framework { background: var(--white); }
+  .phases-visual {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1.75rem; margin-top: 2.75rem;
+  }
+  @media (max-width: 580px) { .phases-visual { grid-template-columns: 1fr; } }
+  .phase-block {
+    padding: 2.1rem 1.6rem; position: relative; overflow: hidden;
+  }
+  .phase-block.p1 { background: linear-gradient(145deg, #0D3028, var(--phase1)); }
+  .phase-block.p2 { background: linear-gradient(145deg, #141E48, var(--phase2)); }
+  .phase-block.p3 { background: linear-gradient(145deg, #3A0F0F, var(--phase3)); }
+  .phase-block-num {
+    font-family: var(--serif); font-size: 5.5rem; font-weight: 400;
+    color: rgba(255,255,255,0.07); position: absolute; right: 0.5rem; top: -0.5rem; line-height: 1;
+  }
+  .phase-block-label { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.80); margin-bottom: 0.4rem; font-weight: 600; }
+  .phase-block-name  { font-family: var(--serif); font-size: 1.5rem; color: #FFFFFF; font-weight: 500; margin-bottom: 0.25rem; }
+  .phase-block-weeks { font-size: 0.72rem; color: rgba(255,255,255,0.70); margin-bottom: 1rem; font-weight: 600; }
+  .phase-block-desc  { font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: rgba(255,255,255,0.92); line-height: 1.65; }
+
+  /* ── COMMISSIONING ── */
+  #commissioning { background: #0D3028; text-align: center; }
+  #commissioning .section-title { color: #F5EDD8; }
+  #commissioning .section-label { color: var(--gold-bright); font-weight: 700; }
+  #commissioning .section-rule  { margin: 0 auto 2rem; background: var(--gold-bright); }
+  .commission-elements {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.1rem; margin-top: 2.75rem; text-align: left;
+  }
+  .commission-item {
+    border: 1.5px solid rgba(232,184,75,0.45); padding: 1.35rem;
+    background: rgba(255,255,255,0.06);
+  }
+  .commission-icon { font-family: var(--serif); font-size: 1.5rem; color: var(--gold-bright); margin-bottom: 0.55rem; }
+  .commission-name { font-size: 0.9rem; font-weight: 600; color: #E8F6ED; margin-bottom: 0.35rem; }
+  .commission-desc { font-size: 0.8rem; color: #9AC4AE; line-height: 1.55; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #EDE0C0; border-top: 2.5px solid var(--gold);
+    padding: 2.75rem 2rem; text-align: center;
+    box-shadow: 0 -3px 16px rgba(74,46,14,0.12);
+  }
+  .footer-title  { font-family: var(--serif); font-size: 1.35rem; color: var(--bark); font-style: italic; font-weight: 600; margin-bottom: 0.4rem; }
+  .footer-by     { font-size: 0.72rem; color: var(--bark-mid); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; }
+  .footer-verse  { font-family: var(--serif); font-style: italic; font-size: 0.92rem; color: var(--bark); margin-top: 1.35rem; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+
+  @media (max-width: 580px) {
+    .soap-grid  { grid-template-columns: 1fr 1fr; }
+    .shape-row  { flex-wrap: wrap; }
+    .shape-cell { min-width: 30%; }
+    .five-c     { grid-template-columns: repeat(3,1fr); }
+  }
+  @media print {
+    nav { display: none; }
+    main { padding-top: 0; }
+    .cover { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Growing Deeper, Going Further</div>
+  <ul class="nav-links">
+    <li><a href="#contents">Contents</a></li>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#framework">Framework</a></li>
+    <li><a href="#phase1">Phase 1</a></li>
+    <li><a href="#phase2">Phase 2</a></li>
+    <li><a href="#phase3">Phase 3</a></li>
+    <li><a href="#commissioning">Commissioning</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-label">A Discipleship Curriculum</div>
+    <div class="cover-ornament"></div>
+    <h1>Growing <em>Deeper,</em><br>Going Further</h1>
+    <div class="cover-subtitle">For Students, Young Adults &amp; New Believers</div>
+    <div class="cover-rule"></div>
+    <div class="cover-meta">
+      36 Weeks &nbsp;·&nbsp; 3 Phases &nbsp;·&nbsp; 12 Modules
+    </div>
+    <div class="author-block">
+      <img class="author-img" src="data:image/png;base64,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" alt="Pastor Daniel Thuo" />
+      <div class="author-info">
+        <div class="author-name">Pastor Daniel Thuo</div>
+        <div class="author-role">Author &amp; Curriculum Developer</div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <div class="badge">Foundation</div>
+      <div class="badge">Formation</div>
+      <div class="badge">Fruitfulness</div>
+    </div>
+    <div class="cover-verse">
+      "Go therefore and make disciples of all the nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, teaching them to observe all things that I have commanded you; and lo, I am with you always, even to the end of the age."
+      <cite>— Matthew 28:19–20 NKJV</cite>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENTS -->
+<section id="contents">
+  <div class="container">
+    <div class="section-label">Table of Contents</div>
+    <h2 class="section-title">Full Curriculum</h2>
+    <div class="section-rule"></div>
+
+    <div class="toc-phase">
+      <div class="toc-phase-title">Introduction</div>
+      <a class="toc-item" href="#intro">
+        <span class="toc-num">—</span>
+        <span class="toc-name">Purpose, Vision &amp; How to Use This Curriculum</span>
+      </a>
+      <a class="toc-item" href="#framework">
+        <span class="toc-num">—</span>
+        <span class="toc-name">The Discipleship Framework</span>
+      </a>
+    </div>
+
+    <div class="toc-phase">
+      <div class="toc-phase-title">Phase 1 — Foundation · Weeks 1–12</div>
+      <a class="toc-item" href="#mod01"><span class="toc-num">01</span><span class="toc-name">Who Am I? Identity in Christ</span><span class="toc-weeks">Weeks 1–3</span></a>
+      <a class="toc-item" href="#mod02"><span class="toc-num">02</span><span class="toc-name">The Word: Knowing and Living Scripture</span><span class="toc-weeks">Weeks 4–6</span></a>
+      <a class="toc-item" href="#mod03"><span class="toc-num">03</span><span class="toc-name">Prayer as Conversation</span><span class="toc-weeks">Weeks 7–9</span></a>
+      <a class="toc-item" href="#mod04"><span class="toc-num">04</span><span class="toc-name">The Holy Spirit — Your Daily Guide</span><span class="toc-weeks">Weeks 10–12</span></a>
+    </div>
+
+    <div class="toc-phase">
+      <div class="toc-phase-title">Phase 2 — Formation · Weeks 13–24</div>
+      <a class="toc-item" href="#mod05"><span class="toc-num">05</span><span class="toc-name">Relationships, Community &amp; the Body of Christ</span><span class="toc-weeks">Weeks 13–15</span></a>
+      <a class="toc-item" href="#mod06"><span class="toc-num">06</span><span class="toc-name">Faith, Culture &amp; Integrity</span><span class="toc-weeks">Weeks 16–18</span></a>
+      <a class="toc-item" href="#mod07"><span class="toc-num">07</span><span class="toc-name">Sharing Faith as a Way of Life</span><span class="toc-weeks">Weeks 19–21</span></a>
+      <a class="toc-item" href="#mod08"><span class="toc-num">08</span><span class="toc-name">Navigating Temptation &amp; Moral Purity</span><span class="toc-weeks">Weeks 22–24</span></a>
+    </div>
+
+    <div class="toc-phase">
+      <div class="toc-phase-title">Phase 3 — Fruitfulness · Weeks 25–36</div>
+      <a class="toc-item" href="#mod09"><span class="toc-num">09</span><span class="toc-name">Purpose, Calling &amp; Career</span><span class="toc-weeks">Weeks 25–27</span></a>
+      <a class="toc-item" href="#mod10"><span class="toc-num">10</span><span class="toc-name">Leadership &amp; Servanthood</span><span class="toc-weeks">Weeks 28–30</span></a>
+      <a class="toc-item" href="#mod11"><span class="toc-num">11</span><span class="toc-name">Making Disciples — Becoming a Disciple Maker</span><span class="toc-weeks">Weeks 31–33</span></a>
+      <a class="toc-item" href="#mod12"><span class="toc-num">12</span><span class="toc-name">Commissioning &amp; Sending</span><span class="toc-weeks">Weeks 34–36</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRODUCTION -->
+<section id="intro">
+  <div class="container">
+    <div class="section-label">Introduction</div>
+    <h2 class="section-title">Purpose, Vision &amp; How to Use</h2>
+    <div class="section-rule"></div>
+
+    <p>This curriculum is designed for mentors, cell group facilitators, and discipleship leaders working with young people — whether in high school, university, post-graduation, or any season of early faith formation. It is equally suited for one-on-one mentoring relationships, small groups, cell churches, campus fellowships, youth ministries, and peer discipleship circles.</p>
+
+    <div class="intro-grid">
+      <div>
+        <div class="info-block">
+          <h3>The Goal</h3>
+          <p>To raise disciples who are rooted in Scripture, shaped by the Holy Spirit, and actively multiplying the Kingdom in their schools, workplaces, and communities.</p>
+        </div>
+        <br>
+        <div class="info-block">
+          <h3>The Method</h3>
+          <p>Relational, story-based, and participatory — inspired by Jesus' own model: teaching through everyday life, honest conversation, and shared mission. The curriculum does not require a professional teacher. Any mentor who is living what they teach can use it.</p>
+        </div>
+      </div>
+      <div>
+        <div class="info-block">
+          <h3>Contextual Principles</h3>
+          <p>Use stories, proverbs, and illustrations from the culture you are serving. Anchor biblical truth in what your group already knows and values. Acknowledge the spiritual worldview already present in your context — fears, syncretism, cultural pressures — and address them biblically and respectfully.</p>
+          <p>Build relationships first — people share truth within trust. Discipleship without relationship is just instruction.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="content-h3" style="margin-top:2.5rem;">Session Structure — 90 Minutes</h3>
+    <table class="session-table">
+      <thead>
+        <tr><th>Element</th><th>Time</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Opening</td><td><span class="time-pill">10 min</span></td><td>Worship song, brief prayer, attendance. Use culturally familiar songs where possible.</td></tr>
+        <tr><td>Icebreaker / Hook</td><td><span class="time-pill">10 min</span></td><td>A relatable question or story to open hearts and minds.</td></tr>
+        <tr><td>Word &amp; Teaching</td><td><span class="time-pill">25 min</span></td><td>Scripture-driven content using the SOAP method (Scripture, Observation, Application, Prayer).</td></tr>
+        <tr><td>Discussion</td><td><span class="time-pill">25 min</span></td><td>Small group questions. Ensure all voices are heard — not only the most vocal.</td></tr>
+        <tr><td>Application Challenge</td><td><span class="time-pill">10 min</span></td><td>One concrete action for the week. Written commitments improve follow-through.</td></tr>
+        <tr><td>Accountability Pairs</td><td><span class="time-pill">5 min</span></td><td>Students pair up and agree to check in on each other's application before the next session.</td></tr>
+        <tr><td>Close</td><td><span class="time-pill">5 min</span></td><td>Prayer for one another by name.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FRAMEWORK -->
+<section id="framework">
+  <div class="container">
+    <div class="section-label">The Discipleship Framework</div>
+    <h2 class="section-title">Three Phases of Formation</h2>
+    <div class="section-rule"></div>
+    <p>Three phases, each building on the last — from personal rootedness to community formation to kingdom multiplication.</p>
+
+    <div class="phases-visual">
+      <div class="phase-block p1">
+        <div class="phase-block-num">1</div>
+        <div class="phase-block-label">Weeks 1–12 · Beginner–Intermediate</div>
+        <div class="phase-block-name">Foundation</div>
+        <div class="phase-block-weeks">4 Modules</div>
+        <div class="phase-block-desc">Who am I? Who is God? What is the Bible? What is prayer? Building the bedrock of personal faith.</div>
+      </div>
+      <div class="phase-block p2">
+        <div class="phase-block-num">2</div>
+        <div class="phase-block-label">Weeks 13–24 · Intermediate</div>
+        <div class="phase-block-name">Formation</div>
+        <div class="phase-block-weeks">4 Modules</div>
+        <div class="phase-block-desc">How do I live this out? Community, integrity, sharing faith, and purity in everyday life.</div>
+      </div>
+      <div class="phase-block p3">
+        <div class="phase-block-num">3</div>
+        <div class="phase-block-label">Weeks 25–36 · Advanced</div>
+        <div class="phase-block-name">Fruitfulness</div>
+        <div class="phase-block-weeks">4 Modules</div>
+        <div class="phase-block-desc">Purpose, leadership, and multiplication. Disciples move from being discipled to making disciples themselves.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PHASE 1 ═══ -->
+<div id="phase1" class="phase-header p1">
+  <div class="phase-num">Foundation</div>
+  <div class="phase-inner">
+    <div class="phase-kicker">Phase 1 · Weeks 1–12</div>
+    <h2 class="phase-title">Foundation</h2>
+    <p class="phase-desc">Establishing firm identity in Christ and essential spiritual disciplines.</p>
+  </div>
+</div>
+
+<!-- MODULE 01 -->
+<div id="mod01" class="module-detail">
+  <div class="container">
+    <div class="phase-badge p1-badge">Phase 1 · Foundation</div>
+    <div class="detail-header">
+      <div class="detail-num">Module 01 · Weeks 1–3 · 2 Sessions</div>
+      <h2 class="detail-title">Who Am I? Identity in Christ</h2>
+      <div class="detail-sub">Confronting false identity and building on the truth of Scripture</div>
+    </div>
+
+    <div class="blockquote">
+      "Therefore, if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new."
+      <cite>— 2 Corinthians 5:17 NKJV</cite>
+    </div>
+
+    <p>One of the most urgent discipleship needs for young people in any culture is a settled sense of identity. Students, graduates, and new believers in every context wrestle with the question: "Who am I now?" Many define themselves by academic performance, social standing, family status, or social media persona. This module dismantles those false foundations and builds identity firmly on what God says — loved, forgiven, chosen, and sent.</p>
+
+    <h3 class="content-h3">Session 1: The Identity Crisis of Our Generation</h3>
+    <p>Who does the world say I am? Unpacking the labels we carry — background, performance, comparison, shame. This session challenges all such distortions and grounds identity in God's declaration.</p>
+
+    <div class="content-h4">Biblical Truth About You</div>
+    <div class="truth-grid">
+      <div class="truth-item">You are made in the image of God<div class="truth-ref">Genesis 1:26–27</div></div>
+      <div class="truth-item">You are fearfully and wonderfully made<div class="truth-ref">Psalm 139:13–14</div></div>
+      <div class="truth-item">You are a child of God<div class="truth-ref">John 1:12; Galatians 3:26</div></div>
+      <div class="truth-item">You are chosen and set apart<div class="truth-ref">1 Peter 2:9</div></div>
+      <div class="truth-item">You are God's workmanship (masterpiece)<div class="truth-ref">Ephesians 2:10</div></div>
+      <div class="truth-item">You are more than a conqueror<div class="truth-ref">Romans 8:37</div></div>
+      <div class="truth-item">You have a God-given future and hope<div class="truth-ref">Jeremiah 29:11</div></div>
+    </div>
+
+    <h3 class="content-h3">Session 2: Breaking False Identities</h3>
+    <p>The Gospel declares: in Christ, the old is gone and the new has come (2 Corinthians 5:17). No label, no family story, no past sin defines you more than the grace of God.</p>
+
+    <div class="content-h4">Renewing the Mind — Romans 12:1–2</div>
+    <ul class="disc-list">
+      <li>Identifying the lies you have believed about yourself</li>
+      <li>Replacing them with the truth of Scripture through consistent meditation</li>
+      <li>Allowing trusted community to speak truth into your life</li>
+    </ul>
+
+    <div class="mentor-note">
+      <strong>Mentor Note</strong>
+      Consider the specific identity pressures your disciples face: academic performance, peer comparison, family expectations, ethnic or social labels, past failures. Encourage honest conversation about where group members have been finding their sense of worth.
+    </div>
+
+    <div class="activities-box">
+      <h4>Key Activities</h4>
+      <ul>
+        <li><strong>Scripture Memory:</strong> Psalm 139:13–14</li>
+        <li><strong>Mirror Exercise:</strong> Write three negative labels you've believed. Find a Bible verse contradicting each. Read them aloud every morning for one week.</li>
+        <li><strong>Application:</strong> Send one encouraging message to someone reflecting their God-given identity — not their performance.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 02 -->
+<div id="mod02" class="module-detail" style="background: var(--parchment);">
+  <div class="container">
+    <div class="phase-badge p1-badge">Phase 1 · Foundation</div>
+    <div class="detail-header">
+      <div class="detail-num">Module 02 · Weeks 4–6 · 3 Sessions</div>
+      <h2 class="detail-title">The Word: Knowing and Living Scripture</h2>
+      <div class="detail-sub">From Bible trivia to life-transforming encounter with God's living Word</div>
+    </div>
+
+    <div class="blockquote">
+      "Your word is a lamp to my feet and a light to my path."
+      <cite>— Psalm 119:105 NKJV</cite>
+    </div>
+
+    <p>Disciples often know Bible stories but don't know how to read the Bible for themselves. This module introduces the SOAP method of personal Bible study, addresses common intellectual objections to Scripture, and makes God's Word feel alive and personally relevant.</p>
+
+    <h3 class="content-h3">Session 1: Why the Bible Matters for Your Generation</h3>
+    <p>In an age of social media theology, quick-fix spirituality, and competing worldviews, young people need the skill of discernment more than ever. The Bible is the living Word of God (Hebrews 4:12) that speaks to every dimension of life: relationships, ambition, suffering, sexuality, and purpose.</p>
+
+    <div class="content-h4">Canon Criteria — Why These Books?</div>
+    <ul class="disc-list">
+      <li><strong>Apostolicity:</strong> Written by an apostle or close associate — tracing back to eyewitness testimony</li>
+      <li><strong>Consistency:</strong> Teaching agrees with the established apostolic witness; contradictory doctrine was rejected</li>
+      <li><strong>Universal Acceptance:</strong> Widely used and accepted across different regional churches</li>
+      <li><strong>Spiritual Power:</strong> Evidence of the Holy Spirit's work in readers' lives</li>
+    </ul>
+
+    <div class="content-h4">The SOAP Method for Daily Bible Study</div>
+    <div class="soap-grid">
+      <div class="soap-cell">
+        <div class="soap-letter">S</div>
+        <div class="soap-word">Scripture</div>
+        <div class="soap-desc">Read the passage slowly — even twice. Write it out in your own words.</div>
+      </div>
+      <div class="soap-cell">
+        <div class="soap-letter">O</div>
+        <div class="soap-word">Observation</div>
+        <div class="soap-desc">What do you notice? Who is speaking? What words stand out?</div>
+      </div>
+      <div class="soap-cell">
+        <div class="soap-letter">A</div>
+        <div class="soap-word">Application</div>
+        <div class="soap-desc">How does this apply to your life TODAY? Be specific and concrete.</div>
+      </div>
+      <div class="soap-cell">
+        <div class="soap-letter">P</div>
+        <div class="soap-word">Prayer</div>
+        <div class="soap-desc">Turn your observation and application into a prayer. Speak to God.</div>
+      </div>
+    </div>
+
+    <div class="activities-box">
+      <h4>Key Activities</h4>
+      <ul>
+        <li><strong>SOAP Practice:</strong> Group reads John 15:1–17 together and each person completes a SOAP journal entry. Pairs share observations.</li>
+        <li><strong>Scripture Memory:</strong> 2 Timothy 3:16–17. Memorize in pairs, test each other next session.</li>
+        <li><strong>4-Week Reading Plan:</strong> Mark · Psalms &amp; Proverbs · Ephesians, Colossians, Philippians · James, 1 Peter, 1 John</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 03 -->
+<div id="mod03" class="module-detail">
+  <div class="container">
+    <div class="phase-badge p1-badge">Phase 1 · Foundation</div>
+    <div class="detail-header">
+      <div class="detail-num">Module 03 · Weeks 7–9 · 3 Sessions</div>
+      <h2 class="detail-title">Prayer as Conversation</h2>
+      <div class="detail-sub">Moving from ritual to relationship — discovering prayer as honest, powerful communion with God</div>
+    </div>
+
+    <div class="blockquote">
+      "Be anxious for nothing, but in everything by prayer and supplication, with thanksgiving, let your requests be made known to God."
+      <cite>— Philippians 4:6 NKJV</cite>
+    </div>
+
+    <p>Prayer is often treated as performance — long, loud, or formulaic. This module invites disciples into genuine conversation with God. It addresses common blocks: unanswered prayer, doubt, distraction, and the fear of praying out loud.</p>
+
+    <div class="content-h4">Session Breakdown</div>
+    <ul class="disc-list">
+      <li><strong>Session 1:</strong> What is prayer? Is God really listening? Reading Luke 11:1–13. Jesus' model — simple, relational, persistent.</li>
+      <li><strong>Session 2:</strong> Models of prayer — ACTS (Adoration, Confession, Thanksgiving, Supplication). Praying the Psalms. Praying in your own voice, not a "performance voice."</li>
+      <li><strong>Session 3:</strong> Corporate prayer and intercession. Praying for your community, for others. Introduction to prayer journaling.</li>
+    </ul>
+
+    <div class="mentor-note">
+      <strong>Mentor Note</strong>
+      Acknowledge prayer cultures in your context — all-night prayers, fasting traditions, formulaic language. Help disciples distinguish performance from authentic intimacy. Ground all prayer practice in the loving relationship Jesus modelled.
+    </div>
+
+    <div class="activities-box">
+      <h4>Key Activities</h4>
+      <ul>
+        <li><strong>Lament Practice:</strong> Read Psalm 22 together. Disciples write their own honest lament prayer — real struggles, no pretending.</li>
+        <li><strong>Prayer Walk:</strong> Walk your meeting space or neighborhood in small groups, praying specifically for the people and places around you.</li>
+        <li><strong>30-Day Prayer Partner:</strong> Each pair commits to praying for 5 minutes together every day for 30 days.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 04 -->
+<div id="mod04" class="module-detail" style="background: var(--parchment);">
+  <div class="container">
+    <div class="phase-badge p1-badge">Phase 1 · Foundation</div>
+    <div class="detail-header">
+      <div class="detail-num">Module 04 · Weeks 10–12 · 3 Sessions</div>
+      <h2 class="detail-title">The Holy Spirit — Your Daily Guide</h2>
+      <div class="detail-sub">Understanding who the Spirit is, how He moves, and how to yield to His leading in daily life</div>
+    </div>
+
+    <div class="blockquote">
+      "However, when He, the Spirit of truth, has come, He will guide you into all truth; for He will not speak on His own authority, but whatever He hears He will speak; and He will tell you things to come."
+      <cite>— John 16:13 NKJV</cite>
+    </div>
+
+    <p>The Holy Spirit is often either over-emphasized (leading to spiritual excess) or under-emphasized (producing purely intellectual Christianity). This module presents a balanced, biblically grounded picture of the Spirit as guide, comforter, convicter, and empowerer.</p>
+
+    <div class="content-h4">Biblical Identity of the Holy Spirit</div>
+    <ul class="disc-list">
+      <li>He teaches (John 14:26)</li>
+      <li>He speaks (Acts 13:2)</li>
+      <li>He guides (John 16:13)</li>
+      <li>He can be grieved (Ephesians 4:30)</li>
+      <li>He empowers believers (Acts 1:8)</li>
+    </ul>
+
+    <h3 class="content-h3">Discernment: The Three-Source Framework</h3>
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <div class="strategy-num" style="color: var(--phase1-mid);">✦</div>
+        <div class="strategy-title">The Spirit</div>
+        <div class="strategy-desc">Aligns with Scripture · Produces love and peace · Points to Christ · Open to community testing</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num" style="color: var(--gold);">?</div>
+        <div class="strategy-title">My Own Mind</div>
+        <div class="strategy-desc">Serves my comfort · Confirmed by my feelings · Stronger when I haven't prayed</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num" style="color: var(--phase3-mid);">!</div>
+        <div class="strategy-title">Another Source</div>
+        <div class="strategy-desc">Produces shame or fear · Contradicts Scripture · Bypasses community testing</div>
+      </div>
+    </div>
+
+    <div class="content-h4">Four Practical Tests</div>
+    <ul class="disc-list">
+      <li><strong>Scripture test</strong> — does this align with or contradict the Word?</li>
+      <li><strong>Character test</strong> — does following this produce fruit of the Spirit or works of the flesh over time?</li>
+      <li><strong>Community test</strong> — do mature, trusted believers affirm this direction? (Prov 11:14)</li>
+      <li><strong>Conviction vs. condemnation</strong> — the Spirit convicts toward restoration and hope (Rom 8:1). False sources produce paralyzing shame or grandiosity.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══ PHASE 2 ═══ -->
+<div id="phase2" class="phase-header p2">
+  <div class="phase-num">Formation</div>
+  <div class="phase-inner">
+    <div class="phase-kicker">Phase 2 · Weeks 13–24</div>
+    <h2 class="phase-title">Formation</h2>
+    <p class="phase-desc">How does faith reshape how I live, relate, speak, and choose?</p>
+  </div>
+</div>
+
+<!-- MODULE 05 -->
+<div id="mod05" class="module-detail">
+  <div class="container">
+    <div class="phase-badge p2-badge">Phase 2 · Formation</div>
+    <div class="detail-header">
+      <div class="detail-num">Module 05 · Weeks 13–15 · 3 Sessions</div>
+      <h2 class="detail-title">Relationships, Community &amp; the Body of Christ</h2>
+      <div class="detail-sub">Friendship, accountability, mentorship, and what it means to truly "do life together"</div>
+    </div>
+
+    <div class="blockquote">
+      "As iron sharpens iron, so a man sharpens the countenance of his friend."
+      <cite>— Proverbs 27:17 NKJV</cite>
+    </div>
+
+    <p>God made humans for community. Yet the prevailing culture increasingly isolates young people behind screens or divides them by program, background, or economic class. This module redeems community and helps disciples build authentic, Christ-centred relationships.</p>
+
+    <h3 class="content-h3">Session 1: God Is Community — The Trinity</h3>
+    <p>Before God created a single human being, community already existed. "Let us make mankind in our image" (Genesis 1:26) reveals the Trinity as the original community of self-giving love. We were not made for isolation; we were made in the image of a God who exists in eternal, joyful relationship.</p>
+
+    <h3 class="content-h3">Four Marks of Healthy Accountability</h3>
+    <ul class="disc-list">
+      <li><strong>Specificity:</strong> Ask specific questions — "Did you pray this week? What happened?" produces honest answers.</li>
+      <li><strong>Regularity:</strong> Accountability works when it is a rhythm, not a crisis response.</li>
+      <li><strong>Grace, not condemnation:</strong> When someone confesses a failure, the right response is prayer, not lecture.</li>
+      <li><strong>Confidentiality:</strong> What is shared in the accountability relationship stays there.</li>
+    </ul>
+
+    <div class="activities-box">
+      <h4>Key Activities</h4>
+      <ul>
+        <li><strong>Relationship Audit:</strong> Disciples map their 5 closest relationships. "Does this relationship make me more like Christ?"</li>
+        <li><strong>Cross-group Gathering:</strong> Deliberately mix participants across backgrounds for a shared meal or activity.</li>
+        <li><strong>Community Covenant:</strong> Each group writes a short covenant — how we will treat one another, pray for one another, and hold each other accountable.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 06 -->
+<div id="mod06" class="module-detail" style="background: var(--parchment);">
+  <div class="container">
+    <div class="phase-badge p2-badge">Phase 2 · Formation</div>
+    <div class="detail-header">
+      <div class="detail-num">Module 06 · Weeks 16–18 · 3 Sessions</div>
+      <h2 class="detail-title">Faith, Culture &amp; Integrity</h2>
+      <div class="detail-sub">Navigating pressure, corruption culture, and the call to be salt and light in your institution</div>
+    </div>
+
+    <div class="blockquote">
+      "You are the light of the world. A city that is set on a hill cannot be hidden."
+      <cite>— Matthew 5:14 NKJV</cite>
+    </div>
+
+    <p>The moral landscape of any academic or professional environment presents real complexity: exam cheating, plagiarism, harassment, compromised systems. This module calls disciples to the costly but powerful path of integrity.</p>
+
+    <div class="content-h4">Session Breakdown</div>
+    <ul class="disc-list">
+      <li><strong>Session 1:</strong> Holiness is not just religion — it is counter-cultural love. Jesus and the Pharisees: external rules versus transformed hearts.</li>
+      <li><strong>Session 2:</strong> Academic and professional integrity as a Gospel issue. Daniel in Babylon as the model. Case studies from your specific context.</li>
+      <li><strong>Session 3:</strong> Digital life and witness. How our online behaviour shapes our testimony. Discipleship for the social media generation.</li>
+    </ul>
+
+    <div class="activities-box">
+      <h4>Key Activities</h4>
+      <ul>
+        <li><strong>Case Study Discussion:</strong> "Someone offers you an unfair advantage. What do you do and why?" Roleplay responses.</li>
+        <li><strong>Media Audit:</strong> Disciples spend 3 days tracking their screen time and content. "What is shaping my mind more — the Word or my feed?"</li>
+        <li><strong>Integrity Pledge:</strong> Each disciple writes and signs a personal integrity commitment specific to their context. Witnessed by their accountability partner.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 07 -->
+<div id="mod07" class="module-detail">
+  <div class="container">
+    <div class="phase-badge p2-badge">Phase 2 · Formation</div>
+    <div class="detail-header">
+      <div class="detail-num">Module 07 · Weeks 19–21 · 3 Sessions</div>
+      <h2 class="detail-title">Sharing Faith as a Way of Life</h2>
+      <div class="detail-sub">Sharing Christ naturally through friendship, story, and the power of the Spirit</div>
+    </div>
+
+    <div class="blockquote">
+      "But sanctify the Lord God in your hearts, and always be ready to give a defense to everyone who asks you a reason for the hope that is in you, with meekness and fear."
+      <cite>— 1 Peter 3:15 NKJV</cite>
+    </div>
+
+    <p>Evangelism is not a program or a church activity — it is the overflow of a life genuinely transformed by the love of Jesus.</p>
+
+    <h3 class="content-h3">Session 2: Your Story — The Most Powerful Tool</h3>
+    <div class="stages-timeline">
+      <div class="stage-row">
+        <div class="stage-num">1</div>
+        <div class="stage-content">
+          <div class="stage-title">Before</div>
+          <div class="stage-desc">What was your life like before following Jesus (or what specific problem were you facing)?</div>
+        </div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">2</div>
+        <div class="stage-content">
+          <div class="stage-title">How</div>
+          <div class="stage-desc">How did you encounter Jesus or respond to Him in that situation?</div>
+        </div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">3</div>
+        <div class="stage-content">
+          <div class="stage-title">After / Now</div>
+          <div class="stage-desc">What is different in your life now? What does Jesus mean to you today?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activities-box">
+      <h4>Key Activities</h4>
+      <ul>
+        <li><strong>Testimony Writing:</strong> Disciples write their story — life before Christ, the turning point, and the difference Christ has made. Shared in small groups.</li>
+        <li><strong>Conversation Roleplay:</strong> Pairs practice transitioning from everyday conversation into a natural question about faith.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 08 -->
+<div id="mod08" class="module-detail" style="background: var(--parchment);">
+  <div class="container">
+    <div class="phase-badge p2-badge">Phase 2 · Formation</div>
+    <div class="detail-header">
+      <div class="detail-num">Module 08 · Weeks 22–24 · 3 Sessions</div>
+      <h2 class="detail-title">Navigating Temptation &amp; Moral Purity</h2>
+      <div class="detail-sub">Honest, grace-filled guidance on sexual integrity and the daily fight for holiness</div>
+    </div>
+
+    <div class="blockquote">
+      "No temptation has overtaken you except such as is common to man; but God is faithful, who will not allow you to be tempted beyond what you are able, but with the temptation will also make the way of escape, that you may be able to bear it."
+      <cite>— 1 Corinthians 10:13 NKJV</cite>
+    </div>
+
+    <h3 class="content-h3">Four Practical Strategies</h3>
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <div class="strategy-num">1</div>
+        <div class="strategy-title">Accountability</div>
+        <div class="strategy-desc">A person who knows your specific struggles and has permission to ask hard questions.</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">2</div>
+        <div class="strategy-title">Digital Boundaries</div>
+        <div class="strategy-desc">Content filters, screen time limits, devices out of the bedroom.</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">3</div>
+        <div class="strategy-title">The Joseph Principle</div>
+        <div class="strategy-desc">Genesis 39: don't debate in place — flee. Interrupt the pattern earlier.</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">4</div>
+        <div class="strategy-title">Community</div>
+        <div class="strategy-desc">Isolation is the enemy of purity. Embed in community.</div>
+      </div>
+    </div>
+
+    <h3 class="content-h3">When You Fall: The Path of Restoration</h3>
+    <ul class="disc-list">
+      <li>Confess to God — 1 John 1:9. The promise is unconditional.</li>
+      <li>Confess to a trusted person — James 5:16. Bringing sin into the light removes its power.</li>
+      <li>Do not add self-condemnation — Romans 8:1. There is no condemnation for those in Christ.</li>
+      <li>Return to the rhythm immediately — do not allow one failure to produce a spiral.</li>
+    </ul>
+
+    <div class="mentor-note">
+      <strong>Mentor Note</strong>
+      End with concrete, actionable steps — not vague resolve. Close with the gospel: falling is not the final word. The indwelling Spirit is more powerful than any habit or pressure. Leave disciples with hope, not a heavier burden.
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PHASE 3 ═══ -->
+<div id="phase3" class="phase-header p3">
+  <div class="phase-num">Fruitfulness</div>
+  <div class="phase-inner">
+    <div class="phase-kicker">Phase 3 · Weeks 25–36</div>
+    <h2 class="phase-title">Fruitfulness</h2>
+    <p class="phase-desc">Disciples move from being shaped to actively shaping others.</p>
+  </div>
+</div>
+
+<!-- MODULE 09 -->
+<div id="mod09" class="module-detail">
+  <div class="container">
+    <div class="phase-badge p3-badge">Phase 3 · Fruitfulness</div>
+    <div class="detail-header">
+      <div class="detail-num">Module 09 · Weeks 25–27 · 3 Sessions</div>
+      <h2 class="detail-title">Purpose, Calling &amp; Career</h2>
+      <div class="detail-sub">Discovering God's unique design for your life and integrating faith with vocation</div>
+    </div>
+
+    <div class="blockquote">
+      "For we are His workmanship, created in Christ Jesus for good works, which God prepared beforehand that we should walk in them."
+      <cite>— Ephesians 2:10 NKJV</cite>
+    </div>
+
+    <p>Young people around the world face enormous pressure around employment and life direction. This module speaks prophetically and practically: your calling is broader than a job title, your gifts matter to God and society, and the Kingdom needs transformed people in every sector.</p>
+
+    <div class="content-h4">Three Levels of Vocation</div>
+    <div class="stages-timeline">
+      <div class="stage-row">
+        <div class="stage-num" style="font-family: var(--sans); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em;">Job</div>
+        <div class="stage-content"><div class="stage-title">Job</div><div class="stage-desc">Tasks exchanged for income. Temporary, transactional.</div></div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num" style="font-family: var(--sans); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em;">Career</div>
+        <div class="stage-content"><div class="stage-title">Career</div><div class="stage-desc">A trajectory of growth and achievement in a field. Medium-term, professional.</div></div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num" style="font-family: var(--sans); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.02em;">Calling</div>
+        <div class="stage-content"><div class="stage-title">Calling</div><div class="stage-desc">God's redemptive purpose expressed through your unique design. Lifelong, identity-rooted.</div></div>
+      </div>
+    </div>
+
+    <div class="content-h4">Session 2: The SHAPE Framework</div>
+    <div class="shape-row">
+      <div class="shape-cell">
+        <div class="shape-letter">S</div>
+        <div class="shape-word">Spiritual Gifts</div>
+        <div class="shape-desc">Abilities God gives through the Spirit for building up the body</div>
+      </div>
+      <div class="shape-cell">
+        <div class="shape-letter">H</div>
+        <div class="shape-word">Heart</div>
+        <div class="shape-desc">What you are passionate about — causes, people, problems that move you</div>
+      </div>
+      <div class="shape-cell">
+        <div class="shape-letter">A</div>
+        <div class="shape-word">Abilities</div>
+        <div class="shape-desc">Natural skills and learned competencies</div>
+      </div>
+      <div class="shape-cell">
+        <div class="shape-letter">P</div>
+        <div class="shape-word">Personality</div>
+        <div class="shape-desc">How God wired you — no type is superior; all are needed</div>
+      </div>
+      <div class="shape-cell">
+        <div class="shape-letter">E</div>
+        <div class="shape-word">Experience</div>
+        <div class="shape-desc">What you have lived through. God wastes nothing.</div>
+      </div>
+    </div>
+
+    <div class="activities-box">
+      <h4>Key Activities</h4>
+      <ul>
+        <li><strong>SHAPE Assessment:</strong> Disciples complete a guided SHAPE exercise and share results with their mentor or accountability partner.</li>
+        <li><strong>Guest Speaker:</strong> If possible, invite a mature believer who integrates faith and work to speak concretely about their experience.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 10 -->
+<div id="mod10" class="module-detail" style="background: var(--parchment);">
+  <div class="container">
+    <div class="phase-badge p3-badge">Phase 3 · Fruitfulness</div>
+    <div class="detail-header">
+      <div class="detail-num">Module 10 · Weeks 28–30 · 3 Sessions</div>
+      <h2 class="detail-title">Leadership &amp; Servanthood</h2>
+      <div class="detail-sub">The Kingdom model of leadership — authority through service, power through humility</div>
+    </div>
+
+    <div class="blockquote">
+      "Yet it shall not be so among you; but whoever desires to become great among you, let him be your servant... just as the Son of Man did not come to be served, but to serve, and to give His life a ransom for many."
+      <cite>— Matthew 20:26–28 NKJV</cite>
+    </div>
+
+    <p>Many societies honor positional authority deeply. This module confronts that model with Jesus' radical servant-leader ethic and equips disciples to lead differently: with humility, moral courage, and genuine care for those they serve.</p>
+
+    <div class="content-h4">The 5 Cs of Kingdom Leadership</div>
+    <div class="five-c">
+      <div class="five-c-item"><div class="five-c-letter">C</div><div class="five-c-word">Character</div></div>
+      <div class="five-c-item"><div class="five-c-letter">C</div><div class="five-c-word">Competence</div></div>
+      <div class="five-c-item"><div class="five-c-letter">C</div><div class="five-c-word">Chemistry</div></div>
+      <div class="five-c-item"><div class="five-c-letter">C</div><div class="five-c-word">Courage</div></div>
+      <div class="five-c-item"><div class="five-c-letter">C</div><div class="five-c-word">Commission</div></div>
+    </div>
+
+    <div class="activities-box">
+      <h4>Key Activities</h4>
+      <ul>
+        <li><strong>Servant Project:</strong> Each disciple commits to one act of unseen, thankless service in the next two weeks. Debrief: "What did it feel like?"</li>
+        <li><strong>Leadership Assessment:</strong> 360-degree feedback — mentor, peers, and accountability partner give honest assessment of strengths and growth areas.</li>
+        <li><strong>Mentorship Pairing:</strong> Disciples who are ready are paired with a more senior leader to shadow and learn in real contexts.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 11 -->
+<div id="mod11" class="module-detail">
+  <div class="container">
+    <div class="phase-badge p3-badge">Phase 3 · Fruitfulness</div>
+    <div class="detail-header">
+      <div class="detail-num">Module 11 · Weeks 31–33 · 3 Sessions</div>
+      <h2 class="detail-title">Making Disciples — Becoming a Disciple Maker</h2>
+      <div class="detail-sub">The move from being discipled to discipling others</div>
+    </div>
+
+    <div class="blockquote">
+      "And the things that you have heard from me among many witnesses, commit these to faithful men who will be able to teach others also."
+      <cite>— 2 Timothy 2:2 NKJV</cite>
+    </div>
+
+    <p>This is the capstone module of the entire curriculum. It takes everything learned and turns the disciple outward — to begin pouring into someone else. Disciple-making is simply living life intentionally with another person and pointing them toward Jesus.</p>
+
+    <div class="content-h4">The Disciple-Making Process — How Jesus Did It</div>
+    <div class="stages-timeline">
+      <div class="stage-row">
+        <div class="stage-num">1</div>
+        <div class="stage-content"><div class="stage-title">Modelling — "I do, you watch"</div><div class="stage-desc">Live openly in front of the person you are investing in. This requires vulnerability, not performance.</div></div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">2</div>
+        <div class="stage-content"><div class="stage-title">Assisting — "I do, you help"</div><div class="stage-desc">Involve the disciple in ministry — co-leading, assisting, participating under supervision.</div></div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">3</div>
+        <div class="stage-content"><div class="stage-title">Watching — "You do, I watch"</div><div class="stage-desc">The disciple leads; the mentor observes and gives feedback. The debrief is as important as the deployment.</div></div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">4</div>
+        <div class="stage-content"><div class="stage-title">Leaving — "You do, I am available"</div><div class="stage-desc">The disciple leads independently; the mentor remains available for counsel.</div></div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">5</div>
+        <div class="stage-content"><div class="stage-title">Multiplying — "You do, with someone else"</div><div class="stage-desc">2 Timothy 2:2 contains four generations in one verse: Paul → Timothy → reliable people → others.</div></div>
+      </div>
+    </div>
+
+    <div class="content-h4">Learning Objectives</div>
+    <ul class="disc-list">
+      <li>Articulate the difference between evangelism and discipleship</li>
+      <li>Identify one person they will begin discipling within 30 days of completing the curriculum</li>
+      <li>Create a written 3-month discipleship plan for that person</li>
+      <li>Demonstrate ability to lead a basic Bible study and accountability conversation</li>
+    </ul>
+
+    <div class="activities-box">
+      <h4>Key Activities</h4>
+      <ul>
+        <li><strong>Practice Session:</strong> Each disciple leads a 30-minute practice discipleship session with a partner. Feedback given by the group and mentor.</li>
+        <li><strong>Disciple-Making Plan:</strong> Written plan submitted to the mentor — includes name, meeting schedule, topics, and accountability measures.</li>
+        <li><strong>Passing the Baton:</strong> Completing disciples are paired with newer members as their first disciple.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 12 -->
+<div id="mod12" class="module-detail" style="background: var(--parchment);">
+  <div class="container">
+    <div class="phase-badge p3-badge">Phase 3 · Fruitfulness</div>
+    <div class="detail-header">
+      <div class="detail-num">Module 12 · Weeks 34–36 · 3 Sessions</div>
+      <h2 class="detail-title">Commissioning &amp; Sending</h2>
+      <div class="detail-sub">Celebrating the journey, consolidating lessons, and being sent out with vision, prayer, and blessing</div>
+    </div>
+
+    <div class="blockquote">
+      "But you shall receive power when the Holy Spirit has come upon you; and you shall be witnesses to Me in Jerusalem, and in all Judea and Samaria, and to the end of the earth."
+      <cite>— Acts 1:8 NKJV</cite>
+    </div>
+
+    <p>The final module is a celebration and a sending. It honours what God has done, consolidates lessons through review and testimony, and sends disciples out with a clear sense of calling, community, and ongoing accountability.</p>
+  </div>
+</div>
+
+<!-- COMMISSIONING SECTION -->
+<section id="commissioning">
+  <div class="container">
+    <div class="section-label">Module 12</div>
+    <h2 class="section-title">The Commissioning Service</h2>
+    <div class="section-rule"></div>
+
+    <div class="blockquote" style="border-left-color: var(--gold-bright); background: rgba(255,255,255,0.07); color: #E8F4ED;">
+      "And the things that you have heard from me among many witnesses, commit these to faithful men who will be able to teach others also."
+      <cite style="color: var(--gold-bright);">— 2 Timothy 2:2 NKJV</cite>
+    </div>
+
+    <div class="commission-elements">
+      <div class="commission-item">
+        <div class="commission-icon">♪</div>
+        <div class="commission-name">Worship</div>
+        <div class="commission-desc">Include songs from your local tradition</div>
+      </div>
+      <div class="commission-item">
+        <div class="commission-icon">📖</div>
+        <div class="commission-name">Scripture Reading</div>
+        <div class="commission-desc">Matthew 28:18–20 read by a disciple</div>
+      </div>
+      <div class="commission-item">
+        <div class="commission-icon">✦</div>
+        <div class="commission-name">Testimonies</div>
+        <div class="commission-desc">3–4 brief testimonies from the cohort</div>
+      </div>
+      <div class="commission-item">
+        <div class="commission-icon">⚡</div>
+        <div class="commission-name">Leader's Charge</div>
+        <div class="commission-desc">Short message on being sent</div>
+      </div>
+      <div class="commission-item">
+        <div class="commission-icon">🙏</div>
+        <div class="commission-name">Laying on of Hands</div>
+        <div class="commission-desc">Prayer over each disciple by name</div>
+      </div>
+      <div class="commission-item">
+        <div class="commission-icon">🤝</div>
+        <div class="commission-name">Commitment Exchange</div>
+        <div class="commission-desc">Graduates commit to discipling one person; community commits to ongoing support</div>
+      </div>
+      <div class="commission-item">
+        <div class="commission-icon">🍽</div>
+        <div class="commission-name">Meal Together</div>
+        <div class="commission-desc">Because community always gathers around food</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-title">Growing Deeper, Going Further</div>
+  <div class="footer-by">Authored by Pastor Daniel Thuo &nbsp;·&nbsp; 36 Weeks · 3 Phases · 12 Modules</div>
+  <div class="footer-verse">"The curriculum is freely adaptable for any cultural or geographical context. It requires no professional theology training to use — only a mentor who is living what they teach and willing to invest in another person."</div>
+</footer>
+
+</main>
+</body>
+</html>
