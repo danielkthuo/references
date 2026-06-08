@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2: Cherishing Family — Pst. Daniel Thuo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #1B3A5C;
+    --navy-light: #243f6b;
+    --gold:       #C9A84C;
+    --gold-light: #e8c96e;
+    --gold-pale:  #FDF5DC;
+    --teal:       #1A6B72;
+    --teal-light: #E6F4F5;
+    --purple:     #4A2D6F;
+    --purple-light:#F0EBF8;
+    --coral:      #B03030;
+    --coral-light:#FDEDEC;
+    --warm:       #F7F3EE;
+    --mid:        #D5CFC8;
+    --charcoal:   #2C3E50;
+    --ink:        #1a1a2e;
+    --white:      #FFFFFF;
+    --page-bg:    #F4F0EA;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--charcoal);
+    background: var(--page-bg);
+  }
+
+  /* ── SIDEBAR NAV ─────────────────────────────────────────────────────── */
+  .sidenav {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: 240px;
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    z-index: 100;
+    overflow-y: auto;
+  }
+  .sidenav-brand {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+  }
+  .sidenav-brand .label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .sidenav-brand .module {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .sidenav-brand .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+  .sidenav nav { padding: 16px 0; flex: 1; }
+  .nav-section {
+    padding: 6px 24px 4px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: rgba(201,168,76,0.6);
+    text-transform: uppercase;
+    margin-top: 12px;
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 24px;
+    font-size: 12.5px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+  }
+  .nav-link:hover, .nav-link.active {
+    color: var(--white);
+    background: rgba(201,168,76,0.1);
+    border-left-color: var(--gold);
+  }
+  .nav-link .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    flex-shrink: 0;
+  }
+  .nav-link:hover .dot, .nav-link.active .dot {
+    background: var(--gold);
+  }
+  .sidenav-footer {
+    padding: 16px 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.5;
+  }
+
+  /* ── MAIN CONTENT ────────────────────────────────────────────────────── */
+  .main {
+    margin-left: 240px;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ─────────────────────────────────────────────────────────────── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 64px 72px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(26,107,114,0.12) 0%, transparent 60%);
+  }
+  .hero::after {
+    content: '"';
+    position: absolute;
+    right: 48px;
+    top: -20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 320px;
+    font-weight: 700;
+    color: rgba(201,168,76,0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 48px;
+    width: 100%;
+  }
+  .hero-text { flex: 1; min-width: 0; }
+  .hero-photo-wrap {
+    flex-shrink: 0;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 4px;
+  }
+  .hero-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 0 6px rgba(201,168,76,0.15), 0 20px 40px rgba(0,0,0,0.4);
+    display: block;
+  }
+  .hero-photo-name {
+    font-family: "Outfit", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  .hero-photo-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--gold);
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(201,168,76,0.3);
+    max-width: 120px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .hero-verse {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: rgba(201,168,76,0.85);
+    margin: 28px 0 8px;
+    padding-left: 20px;
+    border-left: 3px solid var(--gold);
+  }
+  .hero-ref {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.4);
+    padding-left: 20px;
+    text-transform: uppercase;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 0;
+    margin-top: 40px;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 600px;
+  }
+  .hero-meta-item {
+    flex: 1;
+    padding: 14px 20px;
+    border-right: 1px solid rgba(201,168,76,0.2);
+  }
+  .hero-meta-item:last-child { border-right: none; }
+  .hero-meta-item .mlabel {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .hero-meta-item .mval {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ── PAGE LAYOUT ──────────────────────────────────────────────────────── */
+  .content-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 64px 64px 100px;
+  }
+
+  /* ── SECTION BLOCKS ───────────────────────────────────────────────────── */
+  .section { margin-bottom: 64px; }
+
+  .part-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  .part-label.navy  { background: var(--navy); color: var(--gold); }
+  .part-label.teal  { background: var(--teal); color: #e0f5f5; }
+  .part-label.purple { background: var(--purple); color: #ddd0f5; }
+  .part-label.coral  { background: var(--coral); color: #fdddd0; }
+  .part-label.charcoal { background: var(--charcoal); color: var(--gold); }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .section-title.navy   { color: var(--navy); }
+  .section-title.teal   { color: var(--teal); }
+  .section-title.purple { color: var(--purple); }
+  .section-title.coral  { color: var(--coral); }
+
+  .rule {
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+    margin: 16px 0 28px;
+    border: none;
+  }
+
+  p { margin-bottom: 16px; line-height: 1.8; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── SCRIPTURE BLOCK ──────────────────────────────────────────────────── */
+  .scripture {
+    margin: 28px 0;
+    padding: 20px 28px;
+    border-left: 4px solid;
+    background: var(--teal-light);
+    border-radius: 0 6px 6px 0;
+    position: relative;
+  }
+  .scripture.teal   { border-color: var(--teal); background: var(--teal-light); }
+  .scripture.purple { border-color: var(--purple); background: var(--purple-light); }
+  .scripture.coral  { border-color: var(--coral); background: var(--coral-light); }
+  .scripture.gold   { border-color: var(--gold); background: var(--gold-pale); }
+  .scripture-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .scripture-ref {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .scripture.purple .scripture-ref { color: var(--purple); }
+  .scripture.coral .scripture-ref  { color: var(--coral); }
+  .scripture.gold .scripture-ref   { color: #8a6820; }
+
+  /* ── FACILITATOR BOX ──────────────────────────────────────────────────── */
+  .facilitator-box {
+    background: var(--gold-pale);
+    border: 1px solid rgba(201,168,76,0.4);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+  .facilitator-box .fb-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .facilitator-box p {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--charcoal);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  /* ── TABLES ───────────────────────────────────────────────────────────── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 28px;
+    font-size: 14px;
+  }
+  .data-table th {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+  }
+  .data-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--mid);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .data-table tr:nth-child(even) td { background: var(--warm); }
+  .data-table .td-label {
+    font-weight: 600;
+    color: var(--navy);
+    white-space: nowrap;
+    width: 160px;
+  }
+
+  .flow-table th { background: var(--teal); }
+  .flow-table .time-cell {
+    font-weight: 700;
+    color: var(--teal);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* ── DIMENSION CARDS ──────────────────────────────────────────────────── */
+  .dimension-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .dim-card {
+    background: var(--white);
+    border: 1px solid var(--mid);
+    border-top: 4px solid var(--teal);
+    border-radius: 4px;
+    padding: 20px 18px;
+  }
+  .dim-card h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .dim-card .dim-meaning {
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--mid);
+  }
+  .dim-card .dim-practice {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.65;
+  }
+
+  /* ── WAY BLOCKS ───────────────────────────────────────────────────────── */
+  .way-block {
+    background: var(--white);
+    border: 1px solid var(--mid);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .way-header {
+    background: var(--purple);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .way-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+  .way-header h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+  }
+  .way-body {
+    padding: 24px;
+  }
+  .way-body p { font-size: 15px; }
+
+  /* ── PULL QUOTE ───────────────────────────────────────────────────────── */
+  .pull-quote {
+    margin: 24px 0;
+    padding: 20px 28px;
+    background: var(--purple-light);
+    border-left: 4px solid var(--purple);
+    border-radius: 0 6px 6px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--purple);
+    line-height: 1.5;
+  }
+
+  /* ── FORGIVENESS / RECONCILIATION SPLIT ──────────────────────────────── */
+  .split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 24px 0;
+  }
+  .split-card {
+    border-radius: 6px;
+    padding: 24px;
+    border: 1px solid;
+  }
+  .split-card.forgive {
+    background: var(--coral-light);
+    border-color: rgba(176,48,48,0.2);
+  }
+  .split-card.reconcile {
+    background: var(--teal-light);
+    border-color: rgba(26,107,114,0.2);
+  }
+  .split-card h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .split-card.forgive h3 { color: var(--coral); }
+  .split-card.reconcile h3 { color: var(--teal); }
+  .split-card p { font-size: 14px; line-height: 1.7; }
+
+  /* ── DISCUSSION BOX ───────────────────────────────────────────────────── */
+  .discussion-box {
+    background: var(--white);
+    border: 1px solid var(--mid);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 28px 0;
+  }
+  .discussion-header {
+    background: var(--navy);
+    padding: 13px 24px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .discussion-body { padding: 0; }
+  .discussion-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--mid);
+    align-items: flex-start;
+  }
+  .discussion-item:last-child { border-bottom: none; }
+  .discussion-item:nth-child(even) { background: var(--warm); }
+  .discussion-num {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .discussion-item p { font-size: 14.5px; margin: 0; }
+
+  /* ── REFLECTION ───────────────────────────────────────────────────────── */
+  .reflection-section {
+    background: var(--white);
+    border: 1px solid var(--mid);
+    border-radius: 6px;
+    padding: 36px 40px;
+    margin: 28px 0;
+  }
+  .reflection-prompt {
+    margin-bottom: 32px;
+  }
+  .reflection-prompt:last-child { margin-bottom: 0; }
+  .reflection-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+  .reflection-label::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 10px;
+  }
+  .reflection-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .reflection-line {
+    height: 38px;
+    border: none;
+    border-bottom: 1.5px solid var(--mid);
+    background: transparent;
+    width: 100%;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    color: var(--charcoal);
+    outline: none;
+    padding: 4px 2px;
+    resize: none;
+    transition: border-color 0.2s;
+  }
+  .reflection-line:focus { border-bottom-color: var(--teal); }
+
+  /* ── CLOSING DECLARATION ──────────────────────────────────────────────── */
+  .closing-declaration {
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 48px 40px;
+    text-align: center;
+    margin: 48px 0 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .closing-declaration::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  }
+  .closing-declaration .cd-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .closing-declaration .cd-instruct {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 24px;
+    font-style: italic;
+    position: relative;
+  }
+  .closing-declaration .cd-verse {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-style: italic;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+    position: relative;
+  }
+  .closing-declaration .cd-ref {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--gold);
+    margin-top: 14px;
+    position: relative;
+  }
+
+  /* ── PAGE FOOTER ──────────────────────────────────────────────────────── */
+  .page-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    font-size: 11px;
+    text-align: center;
+    padding: 18px 40px;
+    line-height: 1.6;
+    margin-left: 0;
+  }
+  .page-footer span { color: var(--gold); }
+
+  /* ── BULLET LIST ──────────────────────────────────────────────────────── */
+  ul.content-list {
+    list-style: none;
+    margin: 12px 0 16px 0;
+    padding: 0;
+  }
+  ul.content-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 6px 0;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  ul.content-list li::before {
+    content: '●';
+    color: var(--gold);
+    font-size: 8px;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  /* ── PRIORITY BADGE ───────────────────────────────────────────────────── */
+  .priority-row {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .priority-badge {
+    flex: 1;
+    text-align: center;
+    padding: 18px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--mid);
+    background: var(--white);
+  }
+  .priority-badge .pb-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .priority-badge .pb-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  /* ── GENERATIONAL COVENANT BOX ────────────────────────────────────────── */
+  .covenant-box {
+    background: linear-gradient(135deg, var(--navy) 0%, #243f6b 100%);
+    border-radius: 6px;
+    padding: 32px 36px;
+    margin: 32px 0;
+    border-left: 6px solid var(--gold);
+  }
+  .covenant-box p {
+    color: rgba(255,255,255,0.85);
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+  .covenant-box .highlight {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  /* ── PRINT ────────────────────────────────────────────────────────────── */
+  @media print {
+    .sidenav { display: none; }
+    .main { margin-left: 0; }
+    .hero { padding: 40px 48px; }
+    .content-wrap { padding: 40px 48px; }
+  }
+
+  /* ── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .sidenav { display: none; }
+    .main { margin-left: 0; }
+    .hero { padding: 48px 28px; }
+    .content-wrap { padding: 40px 24px 80px; }
+    .dimension-grid { grid-template-columns: 1fr; }
+    .split-grid { grid-template-columns: 1fr; }
+    .hero-meta { flex-direction: column; }
+    .hero-meta-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .hero-meta-item:last-child { border-bottom: none; }
+    .priority-row { flex-direction: column; }
+  }
+
+  /* ── SCROLL ANIMATIONS ────────────────────────────────────────────────── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ──────────────────────────────────────────────────────────────── -->
+<aside class="sidenav">
+  <div class="sidenav-brand">
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+      <img src="data:image/png;base64,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" alt="Pst. Daniel Thuo" style="width:44px; height:44px; border-radius:50%; object-fit:cover; object-position:top center; border:2px solid var(--gold); flex-shrink:0;">
+      <div>
+        <div style="font-family:Outfit,sans-serif; font-size:11px; font-weight:600; color:var(--white);">Pst. Daniel Thuo</div>
+        <div style="font-family:Cormorant Garamond,serif; font-size:11px; font-style:italic; color:var(--gold);">Author</div>
+      </div>
+    </div>
+    <span class="label">Discipleship Curriculum</span>
+    <div class="module">Module 2</div>
+    <div class="subtitle">Cherishing Family</div>
+  </div>
+  <nav>
+    <div class="nav-section">Contents</div>
+    <a href="#leader-notes" class="nav-link"><span class="dot"></span>Leader Notes</a>
+    <a href="#part1" class="nav-link"><span class="dot"></span>Part 1 — Joshua's Declaration</a>
+    <a href="#part2" class="nav-link"><span class="dot"></span>Part 2 — The Word 'Cherish'</a>
+    <a href="#part3" class="nav-link"><span class="dot"></span>Part 3 — Four Kingdom Ways</a>
+    <a href="#part4" class="nav-link"><span class="dot"></span>Part 4 — When It's Complicated</a>
+    <div class="nav-section">Activities</div>
+    <a href="#discussion" class="nav-link"><span class="dot"></span>Small Group Discussion</a>
+    <a href="#reflection" class="nav-link"><span class="dot"></span>Personal Reflection</a>
+    <a href="#closing" class="nav-link"><span class="dot"></span>Closing Declaration</a>
+  </nav>
+  <div class="sidenav-footer">
+    © Pst. Daniel Thuo<br>
+    All Scripture: NKJV<br>
+    Young Adults · Ages 18–25
+  </div>
+</aside>
+
+<!-- ── MAIN ─────────────────────────────────────────────────────────────────── -->
+<main class="main">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Discipleship Curriculum &nbsp;·&nbsp; Module 2</div>
+        <h1>Cherishing<br>Family</h1>
+        <p class="hero-verse">"As for me and my household, we will serve the LORD."</p>
+        <p class="hero-ref">Joshua 24:15 (NKJV)</p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="mlabel">Author</span>
+            <span class="mval">Pst. Daniel Thuo</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="mlabel">Audience</span>
+            <span class="mval">Young Adults · 18–25</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="mlabel">Format</span>
+            <span class="mval">Weekly · 75–90 min</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="mlabel">Scripture</span>
+            <span class="mval">NKJV</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="data:image/png;base64,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" alt="Pst. Daniel Thuo">
+        <div class="hero-photo-name">Pst. Daniel Thuo</div>
+        <div class="hero-photo-title">Author &amp; Facilitator</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content-wrap">
+
+    <!-- ── LEADER NOTES ────────────────────────────────────────────────────── -->
+    <section class="section fade-in" id="leader-notes">
+      <div class="part-label charcoal">📋 &nbsp;Mentor Guide — How to Use This Module</div>
+      <h2 class="section-title navy">Leader &amp; Facilitator Notes</h2>
+      <hr class="rule">
+
+      <p>Module 2 addresses one of the most powerful and often neglected arenas of Kingdom life: the family. For young adults aged 18–25, this topic is simultaneously urgent and layered with complexity. Some participants are raising siblings. Some carry wounds from difficult homes. Some are newly married. All of them are forming habits right now that will shape their households for the next generation.</p>
+      <p>This guide is designed for use by any mentor, cell leader, pastor, or discipleship facilitator — authored by Pst. Daniel Thuo. The content and principles apply universally across church contexts.</p>
+
+      <table class="data-table" style="margin-top:28px;">
+        <thead><tr><th colspan="2">Session Overview</th></tr></thead>
+        <tbody>
+          <tr><td class="td-label">Duration</td><td>75 – 90 minutes (weekly format)</td></tr>
+          <tr><td class="td-label">Audience</td><td>Young adults aged 18–25</td></tr>
+          <tr><td class="td-label">Materials</td><td>Bibles (NKJV), this handout, pens, whiteboard or flip chart</td></tr>
+          <tr><td class="td-label">Key Verse</td><td>Joshua 24:15 (NKJV) — display visibly at front of room</td></tr>
+          <tr><td class="td-label">Pastoral Note</td><td>Some participants carry family pain. Open with prayer that explicitly welcomes honesty and creates safety.</td></tr>
+        </tbody>
+      </table>
+
+      <table class="data-table flow-table" style="margin-top:20px;">
+        <thead><tr><th>Session Flow</th><th style="text-align:right;">Time</th></tr></thead>
+        <tbody>
+          <tr><td>Opening Prayer &amp; Worship</td><td class="time-cell">5 min</td></tr>
+          <tr><td>Opening Discussion (pairs, then full group)</td><td class="time-cell">10 min</td></tr>
+          <tr><td>Teaching: Parts 1–4</td><td class="time-cell">35 min</td></tr>
+          <tr><td>Small Group Discussion (groups of 3–4)</td><td class="time-cell">15 min</td></tr>
+          <tr><td>Personal Reflection (written)</td><td class="time-cell">10 min</td></tr>
+          <tr><td>Closing Declaration &amp; Prayer</td><td class="time-cell">5 min</td></tr>
+        </tbody>
+      </table>
+
+      <div class="facilitator-box">
+        <div class="fb-label">✦ &nbsp;Facilitator Sensitivity</div>
+        <p>This session should not be a celebration of ideal families — it is an invitation to Kingdom intentionality in whatever family context participants carry. Avoid language that assumes everyone has two Christian parents and a stable home.</p>
+        <p>Joshua's declaration was made in the wilderness, by a man who grew up a slave. He was choosing a different future, not celebrating an easy past. Let that framing set the tone of the room.</p>
+      </div>
+    </section>
+
+    <!-- ── PART 1 ────────────────────────────────────────────────────────── -->
+    <section class="section fade-in" id="part1">
+      <div class="part-label navy">Part 1 &nbsp;·&nbsp; Joshua's Declaration — A Kingdom Choice</div>
+      <h2 class="section-title navy">A Kingdom Covenant</h2>
+      <hr class="rule">
+
+      <div class="scripture teal">
+        <div class="scripture-text">"As for me and my household, we will serve the LORD."</div>
+        <div class="scripture-ref">Joshua 24:15 (NKJV)</div>
+      </div>
+
+      <p>Joshua was not a young idealist when he spoke these words. He was an old general who had seen the worst of human nature — slavery, wilderness wandering, warfare, and the death of an entire generation. He had watched leaders crumble. He had buried friends who started well and finished badly. And when the time came for his final address to the nation he had led for decades, he chose one topic above all others:</p>
+
+      <p style="font-family:'Cormorant Garamond',serif; font-size:20px; font-style:italic; text-align:center; color:var(--navy); padding:16px 0;">Household. Family. The people closest to him.</p>
+
+      <p>Notice the structure of Joshua 24:15: <em>"Choose for yourselves this day whom you will serve."</em> The phrase "this day" reveals something critical — it is a daily decision, not a one-time declaration. Joshua was not announcing a past achievement. He was making a present, active, repeated choice. And he was anchoring it not in his own willpower but in a covenant relationship with the living God.</p>
+
+      <p><strong>This is the spirit of Module 2:</strong> not a sentimental celebration of family, but a Kingdom covenant — a deliberate, daily choice about how you will lead the people God has placed closest to you.</p>
+
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--teal); margin:32px 0 12px; border-left:3px solid var(--teal); padding-left:14px;">What 'Family' Means in This Room</h3>
+
+      <p>Before we go further — who is in your household right now? At 18 to 25 years old, the answer varies enormously. Some live with parents. Some are caring for younger siblings. Some are far from home for the first time. Some have chosen a faith community as their primary family because their biological one is fractured or absent.</p>
+      <p>The biblical word for what Joshua chose is household — broader than the nuclear unit, inclusive of all those within your sphere of relational responsibility. This module speaks to all of that.</p>
+
+      <div class="discussion-box">
+        <div class="discussion-header">Opening Discussion &nbsp;·&nbsp; 10 min — Pairs, then full group</div>
+        <div class="discussion-body">
+          <div class="discussion-item">
+            <div class="discussion-num">1</div>
+            <p>Who is in your 'household' right now — the people you feel genuinely responsible for or deeply connected to?</p>
+          </div>
+          <div class="discussion-item">
+            <div class="discussion-num">2</div>
+            <p>What does it mean to 'serve the LORD' in that context — not just personally, but together with those people?</p>
+          </div>
+          <div class="discussion-item">
+            <div class="discussion-num">3</div>
+            <p>Who first modelled to you what it looks like to lead a household with faith? What did they do?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PART 2 ────────────────────────────────────────────────────────── -->
+    <section class="section fade-in" id="part2">
+      <div class="part-label teal">Part 2 &nbsp;·&nbsp; The Word 'Cherish' — A Kingdom Standard</div>
+      <h2 class="section-title teal">Why Cherish and Not Just Love?</h2>
+      <hr class="rule">
+
+      <p>"Love" is true but very broad — we can say we love God, and in the same breath say we love our favourite meal. "Value" is correct, but it can stay in the mind without showing up in how we treat people. <strong>"Cherish" is different. It is love that shows up in action.</strong></p>
+      <p>To cherish someone means you treat them as precious. You protect them, you pay attention to them, and you carry them in your heart even when they are not physically in front of you. A person who is cherished does not have to guess how much they matter — they can feel it. In the way you speak, in how you show up, in whether you remember, in whether you care when nothing is "wrong."</p>
+      <p>In today's world, where relationships are often fast, shallow, and sometimes transactional, cherishing stands out. It refuses the idea that people are only important when they are useful, visible, or convenient. Instead it says: <em>you are not a burden in my life — you matter to me, even when it costs me something.</em></p>
+
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--teal); margin:32px 0 16px; border-left:3px solid var(--teal); padding-left:14px;">Three Dimensions of Cherishing</h3>
+
+      <div class="dimension-grid">
+        <div class="dim-card">
+          <h4>Active Protection</h4>
+          <div class="dim-meaning">Intentional, attentive care for another's wellbeing</div>
+          <div class="dim-practice">Following up when a sibling goes silent or withdrawn. Checking on a parent under pressure. Speaking up for someone who cannot defend themselves. Refusing to ignore signs of struggle in people close to you.</div>
+        </div>
+        <div class="dim-card">
+          <h4>Holding Dear</h4>
+          <div class="dim-meaning">Treating someone as precious, not taken for granted</div>
+          <div class="dim-practice">Prioritising time with family over convenience. Speaking with honour about family members, especially in their absence. Choosing respect and gratitude instead of criticism or neglect.</div>
+        </div>
+        <div class="dim-card">
+          <h4>Longing Tenderness</h4>
+          <div class="dim-meaning">Carrying people in your heart even across distance and time</div>
+          <div class="dim-practice">Sending voice notes or messages when away. Remembering key dates, milestones, and personal struggles. Maintaining emotional presence even when physically distant.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PART 3 ────────────────────────────────────────────────────────── -->
+    <section class="section fade-in" id="part3">
+      <div class="part-label purple">Part 3 &nbsp;·&nbsp; Four Kingdom Ways to Cherish Family</div>
+      <h2 class="section-title purple">Practical Kingdom Commitments</h2>
+      <hr class="rule">
+
+      <!-- WAY 1 -->
+      <div class="way-block">
+        <div class="way-header">
+          <div class="way-num">1</div>
+          <h3>Understand God's Priority Order</h3>
+        </div>
+        <div class="way-body">
+          <div class="scripture purple" style="margin-top:0;">
+            <div class="scripture-text">"If anyone does not know how to manage his own family, how can he take care of God's church?"</div>
+            <div class="scripture-ref">1 Timothy 3:4–5 (NKJV)</div>
+          </div>
+          <div class="priority-row">
+            <div class="priority-badge"><div class="pb-num">1</div><div class="pb-label">God</div></div>
+            <div class="priority-badge"><div class="pb-num">2</div><div class="pb-label">Family</div></div>
+            <div class="priority-badge"><div class="pb-num">3</div><div class="pb-label">Ministry</div></div>
+          </div>
+          <p>The biblical order is clear. This is not a productivity ranking, but a statement about responsibility and accountability. At the end of life, God will not only ask about public influence or visible success. He will also ask how you loved, led, and stewarded the people He placed closest to you.</p>
+          <p>There is a subtle but dangerous lie that circulates in some church cultures: that sacrificing family for ministry is a mark of devotion. Paul confronts this directly in 1 Timothy 3. The very first qualification for church leadership is household management. <strong>Your private faithfulness precedes your public calling.</strong></p>
+          <div class="pull-quote">"God first" does not mean "ministry first." Ministry is what you do for God. Family is what you steward for God. They are not the same thing — and if they were in competition, Scripture is clear about which one holds priority.</div>
+        </div>
+      </div>
+
+      <!-- WAY 2 -->
+      <div class="way-block">
+        <div class="way-header">
+          <div class="way-num">2</div>
+          <h3>Prepare Your Family for Life</h3>
+        </div>
+        <div class="way-body">
+          <div class="scripture purple" style="margin-top:0;">
+            <div class="scripture-text">"By wisdom a house is built, and through understanding it is established; through knowledge its rooms are filled with rare and beautiful treasures."</div>
+            <div class="scripture-ref">Proverbs 24:3–4 (NKJV)</div>
+          </div>
+          <p>As young adults, you carry something your family members may not have: education, exposure, faith community, and the experience of being discipled. This is not for you alone — it is to be shared.</p>
+          <p>Deuteronomy 6:7 instructs God's people to teach His commands "when you sit at home and when you walk along the road, when you lie down and when you get up." The setting is not a classroom — it is the ordinary moments of shared life. A meal. A journey. A late-night conversation. The most powerful discipleship rarely happens on a stage.</p>
+          <div class="facilitator-box" style="margin-bottom:0;">
+            <div class="fb-label">✦ &nbsp;Practical Question</div>
+            <p>What wisdom are you carrying that your family needs? What has God taught you through your faith community, this curriculum, or your own walk with Him — that a younger sibling, a cousin, or a parent needs to hear?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WAY 3 -->
+      <div class="way-block">
+        <div class="way-header">
+          <div class="way-num">3</div>
+          <h3>Protect Your Family</h3>
+        </div>
+        <div class="way-body">
+          <div class="scripture purple" style="margin-top:0;">
+            <div class="scripture-text">"If one falls down, his friend can help him up. But pity the man who falls and has no one to help him up!"</div>
+            <div class="scripture-ref">Ecclesiastes 4:10 (NKJV)</div>
+          </div>
+          <p>Protecting family does not mean preventing difficulty. Every family will face storms — illness, financial collapse, conflict, grief, failure. The cherishing leader does not promise to remove the storm. They promise to stand in it with you.</p>
+          <p>Notice three things a cherishing protector offers in the storm:</p>
+          <ul class="content-list">
+            <li><strong>Practical help</strong> — showing up with hands and resources</li>
+            <li><strong>Wisdom</strong> — bringing God's perspective into a chaotic moment</li>
+            <li><strong>Steady presence</strong> — being a non-anxious anchor when everything else is shaking</li>
+          </ul>
+          <p>Protection also includes loving correction — not driven by pride or irritation, but spoken in love, with humility and care. When correction is combined with love, presence, and wisdom, it becomes one of the most protective gifts you can give. It does not control people — it guards their future.</p>
+        </div>
+      </div>
+
+      <!-- WAY 4 -->
+      <div class="way-block">
+        <div class="way-header">
+          <div class="way-num">4</div>
+          <h3>Point Your Family to God</h3>
+        </div>
+        <div class="way-body">
+          <div class="scripture purple" style="margin-top:0;">
+            <div class="scripture-text">"Yet indeed I also count all things loss for the excellence of the knowledge of Christ Jesus my Lord…"</div>
+            <div class="scripture-ref">Philippians 3:8 (NKJV)</div>
+          </div>
+          <p>Of all the ways we cherish our families, this one carries the deepest and most eternal weight. Material support matters. Words of encouragement matter. Emotional presence matters. But all of these remain temporary. Pointing your family to God is different — it is the only kind of impact that outlives this life.</p>
+          <p>This does not require a pulpit, a title, or theological expertise. It begins with a life that quietly but clearly communicates: <strong>God is real, God is faithful, and God is worth trusting.</strong> People may not always respond to what you say, but they are deeply shaped by what they consistently see.</p>
+          <p>Often, the most influential "sermon" your family will ever receive is not a formal message or invitation to church. It is the way you respond when life becomes difficult. How you handle pressure, disappointment, loss, or success can quietly point people to God more powerfully than words alone ever could.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PART 4 ────────────────────────────────────────────────────────── -->
+    <section class="section fade-in" id="part4">
+      <div class="part-label coral">Part 4 &nbsp;·&nbsp; When Family Is Complicated</div>
+      <h2 class="section-title coral">Honest Ground</h2>
+      <hr class="rule">
+
+      <p>This session would not be honest if it only described family in beautiful or ideal ways. For many participants, family is complicated. It carries real pain — abandonment, ongoing conflict, emotional distance, abuse, loss, or the pressure of being the one everyone depends on in a household that is not stable. This is not a small issue or a rare experience. For many young adults, this is reality.</p>
+
+      <div class="scripture coral">
+        <div class="scripture-text" style="font-size:17px; font-style:normal; font-weight:500;">In light of what God is doing in your life — how are you choosing to respond to your family moving forward?</div>
+      </div>
+
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--coral); margin:32px 0 16px; border-left:3px solid var(--coral); padding-left:14px;">Forgiveness and Reconciliation Are Not the Same</h3>
+
+      <div class="split-grid">
+        <div class="split-card forgive">
+          <h3>Forgiveness</h3>
+          <p>Forgiveness happens inside you. It is choosing to release the weight of what someone did — not because it was okay, not because it didn't hurt, but because you refuse to let it keep controlling your heart. It is rooted in the truth that God has forgiven us far more than we could ever repay.</p>
+          <div class="scripture coral" style="margin-top:16px; margin-bottom:0;">
+            <div class="scripture-text" style="font-size:15px;">"Be kind and compassionate to one another, forgiving each other, just as in Christ God forgave you."</div>
+            <div class="scripture-ref" style="color:var(--coral);">Ephesians 4:32 (NKJV)</div>
+          </div>
+        </div>
+        <div class="split-card reconcile">
+          <h3>Reconciliation</h3>
+          <p>Reconciliation is different. It is about rebuilding a relationship. That takes time, safety, trust, and real change — and sometimes it may not be immediately or fully possible. You can forgive someone and still keep boundaries. You can forgive a parent and still protect your emotional health.</p>
+          <div class="scripture teal" style="margin-top:16px; margin-bottom:0;">
+            <div class="scripture-text" style="font-size:15px;">"If it is possible, as far as it depends on you, live at peace with everyone."</div>
+            <div class="scripture-ref">Romans 12:18 (NKJV)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="facilitator-box">
+        <div class="fb-label">✦ &nbsp;Facilitator Note</div>
+        <p>If family-related wounds are surfacing for any participant during this session: this is a holy moment. Encourage them to speak to a cell leader, pastor, or trusted mentor. God is not afraid of pain around family — He is in the business of bringing deep healing there.</p>
+      </div>
+
+      <div class="scripture teal">
+        <div class="scripture-text">"The LORD is near to those who have a broken heart, and saves such as have a contrite spirit."</div>
+        <div class="scripture-ref">Psalm 34:18 (NKJV)</div>
+      </div>
+
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--navy); margin:32px 0 16px; border-left:3px solid var(--navy); padding-left:14px;">The Generational Covenant</h3>
+
+      <p>Joshua's declaration — 'As for me and my household, we will serve the LORD' — was spoken by a man who grew up as a slave under Pharaoh. His formation happened in the most brutal of conditions. He had every reason to repeat a pattern of powerlessness and fear. Instead, he made a Kingdom covenant to do things differently.</p>
+
+      <div class="covenant-box">
+        <p>You are not your parents' failures. You are not the wounds of your household. You are a young Kingdom citizen, standing at the beginning of your household leadership — and you have the power, through Christ, to start a new story.</p>
+        <div class="scripture-text highlight">"Therefore, if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new."</div>
+        <p style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:8px; margin-bottom:0;">2 Corinthians 5:17 (NKJV)</p>
+      </div>
+
+      <div class="scripture gold">
+        <div class="scripture-text">"I will give you a new heart and put a new spirit within you…"</div>
+        <div class="scripture-ref">Ezekiel 36:26 (NKJV)</div>
+      </div>
+    </section>
+
+    <!-- ── SMALL GROUP DISCUSSION ─────────────────────────────────────────── -->
+    <section class="section fade-in" id="discussion">
+      <div class="part-label teal">Small Group Discussion &nbsp;·&nbsp; Groups of 3–4 &nbsp;·&nbsp; 12–15 min</div>
+      <h2 class="section-title teal">Discussion Questions</h2>
+      <hr class="rule">
+      <p>Choose a facilitator and timekeeper within your group. Work through as many questions as time allows. Be honest — this is a safe space.</p>
+
+      <div class="discussion-box" style="margin-top:24px;">
+        <div class="discussion-header">Group Questions</div>
+        <div class="discussion-body">
+          <div class="discussion-item">
+            <div class="discussion-num">1</div>
+            <div>
+              <p style="font-weight:600; margin-bottom:4px;">Cherishing in Practice</p>
+              <p>Which of the four ways to cherish family feels most natural to you right now? Which one feels most difficult or most neglected in your current season of life?</p>
+            </div>
+          </div>
+          <div class="discussion-item">
+            <div class="discussion-num">2</div>
+            <div>
+              <p style="font-weight:600; margin-bottom:4px;">Family and Ministry Balance</p>
+              <p>Where is the line between prioritising family and neglecting ministry — and where is the line between prioritising ministry and neglecting family? Have you ever seen either extreme in someone's life? What were the consequences?</p>
+            </div>
+          </div>
+          <div class="discussion-item">
+            <div class="discussion-num">3</div>
+            <div>
+              <p style="font-weight:600; margin-bottom:4px;">Re-engaging Relationships</p>
+              <p>Is there a family member you have been taking for granted — someone you have stopped intentionally cherishing? What practical step could help you re-engage that relationship in a healthy way?</p>
+            </div>
+          </div>
+          <div class="discussion-item">
+            <div class="discussion-num">4</div>
+            <div>
+              <p style="font-weight:600; margin-bottom:4px;">Public Commitment and Accountability</p>
+              <p>Joshua made his declaration in public — "as for me and my household." Why is it helpful to share your family commitments with other people who can encourage you and hold you accountable?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PERSONAL REFLECTION ─────────────────────────────────────────────── -->
+    <section class="section fade-in" id="reflection">
+      <div class="part-label navy">Personal Reflection &nbsp;·&nbsp; Set aside 8–10 minutes in quiet</div>
+      <h2 class="section-title navy">Written Reflection</h2>
+      <hr class="rule">
+      <p>Take your time. Write honestly. This is between you and God.</p>
+
+      <div class="reflection-section">
+        <div class="reflection-prompt">
+          <div class="reflection-label">Is there a family member you need to forgive? Be honest with yourself. Is there confusion in your heart between forgiving and reconciling?</div>
+          <div class="reflection-lines">
+            <textarea class="reflection-line" rows="1" placeholder="Write your thoughts here…"></textarea>
+            <textarea class="reflection-line" rows="1" placeholder=""></textarea>
+            <textarea class="reflection-line" rows="1" placeholder=""></textarea>
+          </div>
+        </div>
+        <div class="reflection-prompt">
+          <div class="reflection-label">Write your own version of Joshua 24:15 — specific to your household, your current season, and your covenant with God.</div>
+          <div class="reflection-lines">
+            <textarea class="reflection-line" rows="1" placeholder="As for me and my household…"></textarea>
+            <textarea class="reflection-line" rows="1" placeholder=""></textarea>
+            <textarea class="reflection-line" rows="1" placeholder=""></textarea>
+          </div>
+        </div>
+        <div class="reflection-prompt">
+          <div class="reflection-label">What is one practical action you will take this week to cherish your family more intentionally?</div>
+          <div class="reflection-lines">
+            <textarea class="reflection-line" rows="1" placeholder="This week I will…"></textarea>
+            <textarea class="reflection-line" rows="1" placeholder=""></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CLOSING DECLARATION ─────────────────────────────────────────────── -->
+    <section class="section fade-in" id="closing">
+      <div class="closing-declaration">
+        <div class="cd-label">Closing Declaration</div>
+        <div class="cd-instruct">Read aloud together as a group:</div>
+        <div class="cd-verse">"As for me and my household,<br>we will serve the LORD."</div>
+        <div class="cd-ref">Joshua 24:15 (NKJV)</div>
+      </div>
+    </section>
+
+  </div><!-- /content-wrap -->
+
+  <footer class="page-footer">
+    <span>Discipleship Curriculum · Module 2: Cherishing Family · © Pst. Daniel Thuo</span><br>
+    All Scripture quotations from the New King James Version (NKJV) © Thomas Nelson, Inc. Used for discipleship and educational purposes.
+  </footer>
+
+</main>
+
+<script>
+  // Scroll-based fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Active nav link highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => navObserver.observe(s));
+
+  // Auto-resize textareas
+  document.querySelectorAll('.reflection-line').forEach(ta => {
+    ta.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = this.scrollHeight + 'px';
+    });
+  });
+</script>
+</body>
+</html>
