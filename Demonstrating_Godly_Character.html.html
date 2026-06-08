@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discipleship Module 1 — Demonstrating Godly Character</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* One warm neutral ramp — no competing hues */
+    --ink-900: #18140F;   /* darkest — sidebar, cover bg */
+    --ink-800: #2A231A;   /* nav borders */
+    --ink-700: #3D3228;   /* body text */
+    --ink-500: #6B5A47;   /* secondary text */
+    --ink-300: #A8947C;   /* muted labels */
+    --ink-100: #E8DDD0;   /* borders */
+    --ink-50:  #F4EDE3;   /* parchment-dark */
+    --page:    #FAF6F0;   /* main page background */
+    --white:   #FFFFFF;
+
+    /* Single accent — warm antique gold, used sparingly */
+    --gold:    #A07C3A;
+    --gold-bg: #F5EDD8;   /* gold wash backgrounds */
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    background: var(--ink-900);
+    color: var(--ink-700);
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  /* ─── SIDEBAR ─── */
+  #nav {
+    position: fixed; left: 0; top: 0; bottom: 0;
+    width: 252px;
+    background: var(--ink-900);
+    border-right: 1px solid var(--ink-800);
+    padding: 2rem 0;
+    overflow-y: auto;
+    z-index: 100;
+    transition: transform 0.3s ease;
+  }
+  #nav .nav-logo {
+    padding: 0 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--ink-800);
+    margin-bottom: 1rem;
+  }
+  #nav .nav-logo span {
+    font-family: 'Jost', sans-serif;
+    font-size: 9.5px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold);
+    display: block; margin-bottom: 0.35rem;
+  }
+  #nav .nav-logo h2 {
+    font-size: 13.5px; font-weight: 300;
+    color: var(--ink-50); line-height: 1.45;
+    font-style: italic;
+  }
+  #nav a {
+    display: block; padding: 0.5rem 1.5rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px; letter-spacing: 0.04em;
+    color: var(--ink-300); text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+    border-left: 2px solid transparent;
+    line-height: 1.45;
+  }
+  #nav a:hover, #nav a.active {
+    color: var(--ink-50);
+    background: rgba(255,255,255,0.04);
+    border-left-color: var(--gold);
+  }
+  #nav a.part-link {
+    font-size: 9.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-top: 1.1rem; font-weight: 600;
+  }
+  #nav a.section-link { padding-left: 2rem; }
+
+  /* ─── HAMBURGER ─── */
+  #hamburger {
+    display: none; position: fixed;
+    top: 1rem; left: 1rem; z-index: 200;
+    background: var(--ink-900);
+    border: 1px solid var(--ink-800);
+    border-radius: 4px;
+    width: 40px; height: 40px;
+    align-items: center; justify-content: center;
+    cursor: pointer; flex-direction: column;
+    gap: 5px; padding: 8px;
+  }
+  #hamburger span {
+    display: block; width: 100%; height: 1.5px;
+    background: var(--gold); transition: 0.3s;
+  }
+
+  /* ─── MAIN ─── */
+  #main { margin-left: 252px; background: var(--page); min-height: 100vh; }
+
+  /* ─── COVER ─── */
+  #cover {
+    min-height: 100vh; background: var(--ink-900);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    padding: 4rem 3rem;
+  }
+  #cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 42%, rgba(160,124,58,0.07) 0%, transparent 70%),
+      repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(160,124,58,0.025) 60px),
+      repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(160,124,58,0.025) 60px);
+  }
+  #cover::after {
+    content: ''; position: absolute;
+    top: 2.5rem; left: 2.5rem; right: 2.5rem; bottom: 2.5rem;
+    border: 1px solid rgba(160,124,58,0.18); pointer-events: none;
+  }
+  .cover-inner { position: relative; text-align: center; max-width: 600px; }
+  .cover-series {
+    font-family: 'Jost', sans-serif;
+    font-size: 9.5px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 2rem;
+  }
+  .cover-ornament {
+    color: var(--gold); font-size: 1.6rem;
+    display: block; margin-bottom: 1.5rem;
+    opacity: 0.45; letter-spacing: 0.6em;
+  }
+  .cover-module {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--ink-300);
+    margin-bottom: 0.7rem;
+  }
+  .cover-title {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 300; color: var(--ink-50);
+    line-height: 1.15; margin-bottom: 1rem;
+    font-style: italic;
+  }
+  .cover-title strong {
+    font-weight: 700; font-style: normal;
+    color: var(--white); display: block;
+  }
+  .cover-verse {
+    margin: 2.5rem auto;
+    max-width: 460px;
+    border-top: 1px solid rgba(160,124,58,0.25);
+    border-bottom: 1px solid rgba(160,124,58,0.25);
+    padding: 1.4rem 0;
+    color: var(--ink-100);
+    font-style: italic; font-size: 1.08rem; line-height: 1.75;
+  }
+  .cover-verse p { color: var(--ink-100); margin-bottom: 0; }
+  .cover-verse cite {
+    display: block; font-style: normal;
+    font-family: 'Jost', sans-serif;
+    font-size: 9.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-top: 0.7rem;
+  }
+  .cover-meta {
+    font-family: 'Jost', sans-serif;
+    font-size: 10.5px; letter-spacing: 0.1em;
+    color: var(--ink-500); margin-top: 2rem; line-height: 2;
+  }
+  .cover-meta strong { color: var(--ink-300); }
+
+  /* ─── PAGE SECTIONS ─── */
+  .page-section {
+    max-width: 760px; margin: 0 auto;
+    padding: 4.5rem 2.5rem;
+    border-bottom: 1px solid var(--ink-100);
+    animation: fadeUp 0.55s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── PART HEADERS ─── */
+  .part-header {
+    max-width: 760px; margin: 0 auto;
+    padding: 4rem 2.5rem 1.5rem;
+  }
+  .part-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 9.5px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 0.7rem;
+  }
+  .part-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: var(--ink-100);
+  }
+  .part-title {
+    font-size: 2.1rem; font-weight: 600;
+    color: var(--ink-900); line-height: 1.2;
+    margin-bottom: 0.4rem;
+  }
+  .part-subtitle {
+    font-style: italic; font-size: 1.15rem;
+    color: var(--ink-500);
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  h2 {
+    font-size: 1.55rem; font-weight: 600;
+    color: var(--ink-900); margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--ink-100);
+  }
+  h3 {
+    font-size: 1.2rem; font-weight: 600;
+    color: var(--ink-700); margin: 1.8rem 0 0.65rem;
+    font-style: italic;
+  }
+  h3::before { content: '— '; color: var(--gold); font-style: normal; }
+  p { margin-bottom: 1.2rem; color: var(--ink-700); }
+  strong { color: var(--ink-900); font-weight: 600; }
+  em { color: var(--ink-500); }
+  ul, ol { margin: 0.9rem 0 1.4rem 1.5rem; color: var(--ink-700); }
+  li { margin-bottom: 0.4rem; }
+  li::marker { color: var(--gold); }
+
+  /* ─── SCRIPTURE ─── */
+  .scripture {
+    border-left: 2px solid var(--gold);
+    background: var(--gold-bg);
+    margin: 2rem 0; padding: 1.4rem 2rem;
+    border-radius: 0 3px 3px 0;
+    position: relative;
+  }
+  .scripture::before {
+    content: '\201C';
+    font-size: 4.5rem; line-height: 0;
+    color: var(--gold); opacity: 0.2;
+    position: absolute; top: 2.2rem; left: 0.4rem;
+    font-family: Georgia, serif;
+  }
+  .scripture p {
+    font-style: italic; font-size: 1.08rem;
+    color: var(--ink-800); margin-bottom: 0.7rem;
+    padding-left: 1.4rem;
+  }
+  .scripture cite {
+    font-family: 'Jost', sans-serif;
+    font-size: 9.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    padding-left: 1.4rem; font-style: normal;
+  }
+
+  /* ─── CALLOUT BOXES ─── */
+  /* Single neutral system — differentiated by shade only, never by hue */
+  .callout {
+    border: 1px solid var(--ink-100);
+    background: var(--white);
+    margin: 2rem 0; border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 8px rgba(24,20,15,0.05);
+  }
+  .callout-header {
+    background: var(--ink-800);
+    color: var(--ink-100);
+    padding: 0.7rem 1.5rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; font-weight: 600;
+  }
+  .callout-body {
+    padding: 1.4rem 1.5rem;
+    color: var(--ink-700);
+  }
+  .callout-body p { margin-bottom: 0.7rem; }
+  .callout-body p:last-child { margin-bottom: 0; }
+
+  /* Variants — tonal only, same gold accent line at top */
+  .callout.leader   { border-top: 2px solid var(--gold); }
+  .callout.warning  { border-top: 2px solid var(--ink-500); }
+  .callout.activity { border-top: 2px solid var(--gold); background: var(--gold-bg); }
+  .callout.activity .callout-body { background: var(--gold-bg); }
+  .callout.truth    { background: var(--ink-50); }
+  .callout.truth .callout-body { background: var(--ink-50); }
+  .callout.devotion { background: var(--page); border: 1px solid var(--ink-100); }
+  .callout.devotion .callout-header { background: var(--ink-700); }
+
+  /* ─── COMPARE GRID ─── */
+  .compare-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; border: 1px solid var(--ink-100);
+    border-radius: 5px; overflow: hidden; margin: 1.4rem 0;
+  }
+  .compare-col { padding: 1.4rem 1.5rem; }
+  .compare-col:first-child {
+    background: var(--ink-50);
+    border-right: 1px solid var(--ink-100);
+  }
+  .compare-col:last-child { background: var(--white); }
+  .compare-col h4 {
+    font-family: 'Jost', sans-serif;
+    font-size: 9.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.9rem; font-weight: 600;
+  }
+  .compare-col p { font-size: 0.95rem; margin-bottom: 0.45rem; color: var(--ink-700); }
+
+  /* ─── FRUIT TABLE ─── */
+  .fruit-table {
+    width: 100%; border-collapse: collapse;
+    margin: 1.4rem 0; font-size: 0.94rem;
+  }
+  .fruit-table th {
+    background: var(--ink-900); color: var(--ink-100);
+    font-family: 'Jost', sans-serif;
+    font-size: 9.5px; letter-spacing: 0.14em;
+    text-transform: uppercase; font-weight: 600;
+    padding: 0.7rem 1rem; text-align: left;
+  }
+  .fruit-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--ink-100);
+    color: var(--ink-700); vertical-align: top;
+  }
+  .fruit-table tr:nth-child(even) td { background: var(--ink-50); }
+  .fruit-table tr:hover td { background: var(--gold-bg); }
+  .fruit-table .fruit-name {
+    font-weight: 700; color: var(--ink-900);
+    font-size: 1rem; white-space: nowrap;
+  }
+  .fruit-table .fruit-test {
+    font-style: italic; font-size: 0.9rem; color: var(--ink-500);
+  }
+
+  /* ─── PEOPLE CARDS ─── */
+  .people-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.4rem; margin: 1.4rem 0;
+  }
+  .person-card {
+    border: 1px solid var(--ink-100);
+    border-radius: 5px; overflow: hidden;
+    background: var(--white);
+  }
+  .person-card-header {
+    background: var(--ink-800); padding: 0.9rem 1.4rem;
+    color: var(--ink-100); font-size: 1.1rem;
+    font-weight: 600; font-style: italic;
+  }
+  .person-card-body {
+    padding: 1.2rem 1.4rem;
+    font-size: 0.95rem; color: var(--ink-700); line-height: 1.7;
+  }
+  .person-card-body strong { color: var(--ink-900); }
+
+  /* ─── SESSION INFO ─── */
+  .session-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.4rem; margin: 1.4rem 0;
+  }
+  .session-box {
+    border: 1px solid var(--ink-100); border-radius: 5px;
+    padding: 1.4rem; background: var(--white);
+  }
+  .session-box h4 {
+    font-family: 'Jost', sans-serif;
+    font-size: 9.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.9rem; font-weight: 600;
+  }
+  .session-box p { font-size: 0.9rem; color: var(--ink-700); margin-bottom: 0.4rem; }
+  .flow-item {
+    display: flex; justify-content: space-between;
+    align-items: baseline; padding: 0.35rem 0;
+    border-bottom: 1px dotted var(--ink-100);
+    font-size: 0.9rem; color: var(--ink-700);
+  }
+  .flow-item:last-child { border-bottom: none; }
+  .flow-time {
+    font-family: 'Jost', sans-serif;
+    font-size: 9.5px; color: var(--gold);
+    white-space: nowrap; margin-left: 1rem;
+  }
+
+  /* ─── REFLECTION QUESTIONS ─── */
+  .reflection-q {
+    counter-reset: q-counter;
+    list-style: none; margin: 0; padding: 0;
+    border: 1px solid var(--ink-100); border-radius: 5px;
+    overflow: hidden;
+  }
+  .reflection-q li {
+    counter-increment: q-counter;
+    padding: 1.2rem 1.4rem 1.2rem 3.8rem;
+    border-bottom: 1px solid var(--ink-100);
+    position: relative; background: var(--white);
+    color: var(--ink-700);
+  }
+  .reflection-q li:nth-child(even) { background: var(--ink-50); }
+  .reflection-q li:last-child { border-bottom: none; }
+  .reflection-q li::before {
+    content: counter(q-counter);
+    position: absolute; left: 1rem; top: 1.2rem;
+    width: 1.8rem; height: 1.8rem;
+    background: var(--gold); color: var(--white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px; font-weight: 600;
+  }
+  .reflection-q li strong {
+    display: block; margin-bottom: 0.45rem; color: var(--ink-900);
+  }
+  .write-lines { margin-top: 0.75rem; }
+  .write-lines span {
+    display: block;
+    border-bottom: 1px solid var(--ink-100);
+    height: 2rem; margin-bottom: 0.05rem;
+  }
+
+  /* ─── CHAR LIST ─── */
+  .char-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+    gap: 0.7rem; margin: 1rem 0 1.4rem;
+  }
+  .char-item {
+    background: var(--white);
+    border: 1px solid var(--ink-100);
+    border-left: 2px solid var(--gold);
+    padding: 0.7rem 1rem;
+    border-radius: 0 3px 3px 0;
+    font-size: 0.94rem; color: var(--ink-700);
+  }
+  .char-item strong { color: var(--ink-900); display: block; }
+
+  /* ─── DISCIPLINE CARDS ─── */
+  .discipline-card {
+    display: flex; gap: 1.4rem; margin: 1.4rem 0;
+    padding: 1.4rem;
+    border: 1px solid var(--ink-100);
+    border-radius: 5px; background: var(--white);
+  }
+  .discipline-num {
+    width: 2.6rem; height: 2.6rem; min-width: 2.6rem;
+    background: var(--gold); color: var(--white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem; font-weight: 700;
+  }
+  .discipline-body h3 { margin-top: 0.2rem; margin-bottom: 0.5rem; }
+  .discipline-body p { font-size: 0.95rem; }
+
+  /* ─── DECLARATION ─── */
+  .declaration {
+    background: var(--ink-900); color: var(--ink-50);
+    padding: 3rem 2.5rem; text-align: center;
+    margin: 3rem 0; border-radius: 6px;
+    position: relative; overflow: hidden;
+  }
+  .declaration::before {
+    content: ''; position: absolute; inset: 8px;
+    border: 1px solid rgba(160,124,58,0.2);
+    border-radius: 3px; pointer-events: none;
+  }
+  .declaration h3 {
+    font-family: 'Jost', sans-serif;
+    font-size: 9.5px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1.4rem; font-style: normal;
+  }
+  .declaration h3::before { display: none; }
+  .declaration blockquote {
+    font-style: italic; font-size: 1.15rem;
+    line-height: 1.9; color: var(--ink-50);
+    max-width: 540px; margin: 0 auto;
+  }
+
+  /* ─── FOOTER ─── */
+  #footer {
+    background: var(--ink-900); color: var(--ink-500);
+    text-align: center; padding: 2.5rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  #footer span { color: var(--gold); }
+
+  /* ─── SCROLL TO TOP ─── */
+  #top-btn {
+    position: fixed; bottom: 2rem; right: 2rem;
+    background: var(--gold); color: var(--white);
+    width: 42px; height: 42px; border-radius: 50%;
+    border: none; cursor: pointer; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: translateY(0.8rem);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 50;
+    box-shadow: 0 3px 10px rgba(24,20,15,0.25);
+  }
+  #top-btn.show { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 880px) {
+    #nav { transform: translateX(-100%); }
+    #nav.open { transform: translateX(0); }
+    #main { margin-left: 0; }
+    #hamburger { display: flex; }
+    .fruit-table { display: block; overflow-x: auto; }
+    .people-grid, .session-grid, .compare-grid { grid-template-columns: 1fr; }
+    .page-section { padding: 3rem 1.5rem; }
+    #cover { padding: 5rem 1.5rem 3rem; }
+    #cover::after { display: none; }
+  }
+
+  /* ── AUTHOR PHOTO ── */
+  .author-photo {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    object-fit: cover; object-position: top center;
+    border: 2px solid rgba(160,124,58,0.4);
+    display: block; margin: 0 auto 1.2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav id="nav">
+  <div class="nav-logo">
+    <span>Discipleship Curriculum</span>
+    <h2>Module 1: Godly Character</h2>
+  </div>
+  <a href="#cover" class="active">Cover</a>
+  <a href="#overview">Session Overview</a>
+  <a href="#opening">Opening Discussion</a>
+  <a href="#part1" class="part-link">Part 1</a>
+  <a href="#part1" class="section-link">Kingdom Character</a>
+  <a href="#competence" class="section-link">Competence vs. Character</a>
+  <a href="#part2" class="part-link">Part 2</a>
+  <a href="#part2" class="section-link">Sincerity — Without Wax</a>
+  <a href="#david-peter" class="section-link">David &amp; Peter</a>
+  <a href="#part3" class="part-link">Part 3</a>
+  <a href="#part3" class="section-link">Fruit of the Spirit</a>
+  <a href="#servant" class="section-link">Servant Leadership</a>
+  <a href="#part4" class="part-link">Part 4</a>
+  <a href="#part4" class="section-link">Forming Character</a>
+  <a href="#disciplines" class="section-link">Three Disciplines</a>
+  <a href="#discussion" class="part-link">Activity</a>
+  <a href="#discussion" class="section-link">Small Group Discussion</a>
+  <a href="#reflection" class="section-link">Personal Reflection</a>
+  <a href="#declaration" class="section-link">Closing Declaration</a>
+</nav>
+
+<button id="hamburger" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<main id="main">
+
+  <!-- COVER -->
+  <section id="cover">
+    <div class="cover-inner">
+      <img src="data:image/jpeg;base64,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" alt="Pst. Daniel Thuo" class="author-photo">
+      <p class="cover-series">Young Adults Discipleship Series · Ages 18–25 · Weekly Session</p>
+      <span class="cover-ornament">✦ ✦ ✦</span>
+      <p class="cover-module">Module 1 · Leadership Development</p>
+      <h1 class="cover-title">
+        Demonstrating<br>
+        <strong>Godly Character</strong>
+      </h1>
+      <div class="cover-verse">
+        <p>"Therefore, as the elect of God, holy and beloved, put on tender mercies, kindness, humility, meekness, longsuffering."</p>
+        <cite>— Colossians 3:12 (NKJV)</cite>
+      </div>
+      <div class="cover-meta">
+        <strong>Author:</strong> Pst. Daniel Thuo &nbsp;·&nbsp; <strong>Edition:</strong> 2025
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADER NOTES -->
+  <div class="page-section">
+    <div class="callout leader">
+      <div class="callout-header">📖 &nbsp; Leader Notes</div>
+      <div class="callout-body">
+        <p>Welcome to Module 1 of this Discipleship Curriculum. This session explores the foundation of all Christian leadership and Kingdom living: <strong>Godly character</strong>. It is not about performance; it is about formation. Who we are becoming in Christ is more important than what we accomplish for Christ.</p>
+        <p>Lead with vulnerability. Share something real from your own journey. Many young adults carry a gap between their public Christian identity and their private interior life. This session should feel like a safe space to close that gap — not a performance review.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SESSION OVERVIEW -->
+  <div id="overview" class="page-section">
+    <div class="session-grid">
+      <div class="session-box">
+        <h4>Session Overview</h4>
+        <p><strong>Duration:</strong> 75 – 90 minutes (weekly)</p>
+        <p><strong>Audience:</strong> Young adults aged 18–25</p>
+        <p><strong>Setting:</strong> Church classroom or youth hall</p>
+        <p><strong>Materials:</strong> Bibles (NIV or ESV), handout, pens, whiteboard</p>
+        <p>Open with 2–3 min of reflective worship or surrender prayer.</p>
+      </div>
+      <div class="session-box">
+        <h4>Session Flow</h4>
+        <div class="flow-item">Opening Worship / Prayer <span class="flow-time">5 min</span></div>
+        <div class="flow-item">Opening Discussion <span class="flow-time">10 min</span></div>
+        <div class="flow-item">Teaching: Sections 1–4 <span class="flow-time">35 min</span></div>
+        <div class="flow-item">Small Group Discussion <span class="flow-time">15 min</span></div>
+        <div class="flow-item">Personal Reflection (written) <span class="flow-time">10 min</span></div>
+        <div class="flow-item">Closing Declaration &amp; Prayer <span class="flow-time">5 min</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPENING DISCUSSION -->
+  <div id="opening" class="page-section">
+    <div class="callout activity">
+      <div class="callout-header">Opening Discussion (10 min) — Share in pairs, then with the room</div>
+      <div class="callout-body">
+        <p>Think of one person whose character has genuinely impacted your faith — not a famous preacher, but someone you have <em>personally</em> known.</p>
+        <ul>
+          <li>What quality in them stands out most?</li>
+          <li>What do you think produced that quality in them?</li>
+          <li>How did their character affect the people around them?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 1 -->
+  <div id="part1" class="part-header">
+    <p class="part-label">Part 1</p>
+    <h2 class="part-title">What Kingdom Character Really Means</h2>
+    <p class="part-subtitle">From performance to transformation</p>
+  </div>
+
+  <div class="page-section">
+    <div class="scripture">
+      <p>"Therefore, as the elect of God, holy and beloved, put on tender mercies, kindness, humility, meekness, longsuffering."</p>
+      <cite>— Colossians 3:12 (NKJV)</cite>
+    </div>
+
+    <p>There is a version of Christianity that is mostly about behaviors — showing up to gatherings, using the right words, avoiding the obvious sins.</p>
+    <p>And there is a version of Christianity that is about transformation — actually becoming different, from the inside out, into the image of Jesus Christ.</p>
+    <p>The Kingdom of God is not built on performance. It is built on people. Specifically, on people whose character has been shaped by the Holy Spirit so thoroughly that when they lead, serve, decide, or suffer — what comes out of them is Christ.</p>
+    <p>Colossians 3:12 uses the word <em>clothe</em> — not perform, not pretend, not display. To clothe yourself with compassion means to put it on so that it becomes your covering.</p>
+
+    <h2>Character Versus Performance</h2>
+    <p>In recent decades, even in church culture, leadership has been reduced to skill, charisma, and strategy. We celebrate the dynamic speaker, the visionary planner, the networker. These are not wrong. But they can exist <em>without</em> character. And when they do, the result is leaders who build impressive platforms on unstable foundations.</p>
+    <p>Researcher and author Stephen Covey discovered that before 1940, almost everything written about leadership focused on character and values. After that, the emphasis shifted to techniques and appearances. The results, across institutions, organizations, and sadly across churches, have been deeply damaging.</p>
+    <p><strong>God is not impressed by our strategy. He looks at the heart.</strong></p>
+
+    <div class="scripture">
+      <p>"For the LORD does not see as man sees; for man looks at the outward appearance, but the LORD looks at the heart."</p>
+      <cite>— 1 Samuel 16:7 (NKJV)</cite>
+    </div>
+
+    <p><strong>Godly character includes:</strong></p>
+    <div class="char-list">
+      <div class="char-item"><strong>Integrity</strong>Truthfulness in all situations</div>
+      <div class="char-item"><strong>Humility</strong>A teachable spirit</div>
+      <div class="char-item"><strong>Self-control</strong>Discipline over impulses</div>
+      <div class="char-item"><strong>Faithfulness</strong>Consistency in responsibility</div>
+      <div class="char-item"><strong>Purity</strong>A clean moral life</div>
+      <div class="char-item"><strong>Accountability</strong>Willingness to be corrected</div>
+      <div class="char-item"><strong>Compassion</strong>Kindness toward others</div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-header">Illustration: The Respected Elder</div>
+      <div class="callout-body">
+        <p>Across many cultures, the most respected elders and community leaders are not those who are loud or self-promoting. They are those whose wisdom has been proven over time through consistent, honorable conduct.</p>
+        <p>Their authority is not based on position alone, but on a long history of integrity and reliability. People trust them before they even speak.</p>
+        <p>This reflects a deeper truth found in both culture and Scripture: <strong>leadership is earned through character, not claimed through titles.</strong></p>
+      </div>
+    </div>
+
+    <div class="callout truth">
+      <div class="callout-header">Kingdom Truth: Inside-Out Leadership</div>
+      <div class="callout-body">
+        <p>Godly character works from the inside out. It is who we really are when we are alone and only God is watching. Our actions, decisions, and words eventually reveal our character — not the other way around.</p>
+        <p>You cannot consistently act better than you are. But you can allow God to make you better than you have been.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPETENCE -->
+  <div id="competence" class="page-section">
+    <h2>Competence vs. Character</h2>
+    <p>Many young people today are developing strong abilities — academic excellence, leadership skills, communication skills, technical and digital skills, and professional competence. These are important and necessary.</p>
+    <p><strong>However, a critical truth must be understood:</strong></p>
+    <p><em><strong>Competency gaps can be trained. Character failures are far more damaging and harder to repair.</strong></em></p>
+
+    <div class="compare-grid">
+      <div class="compare-col">
+        <h4>Skills &amp; Competence</h4>
+        <p>Improved through teaching and practice</p>
+        <p>Can open doors</p>
+        <p>Can be demonstrated quickly</p>
+        <p>Measurable and trainable</p>
+      </div>
+      <div class="compare-col">
+        <h4>Character</h4>
+        <p>Formed through discipline, accountability, spiritual growth</p>
+        <p>Determines whether doors remain open</p>
+        <p>Built over years of small decisions</p>
+        <p>The foundation that holds everything else</p>
+      </div>
+    </div>
+
+    <p>A highly skilled person without character can still break trust, damage relationships, misuse influence, destroy credibility, and hurt others deeply.</p>
+    <p><strong>A leader who lacks skill may frustrate people. But a leader who lacks character wounds people.</strong></p>
+
+    <h3>Biblical Example: Heart Over Ability</h3>
+    <ul>
+      <li>Saul had ability, but his character failed in obedience and humility.</li>
+      <li>David was not perfect, but he remained responsive to God — repentant and teachable.</li>
+    </ul>
+    <p><em>God's selection principle remains the same: He looks at the heart.</em></p>
+  </div>
+
+  <!-- PART 2 -->
+  <div id="part2" class="part-header">
+    <p class="part-label">Part 2</p>
+    <h2 class="part-title">Sincerity — The Courage to Be Real</h2>
+    <p class="part-subtitle">Without wax, nothing hidden</p>
+  </div>
+
+  <div class="page-section">
+    <h2>Without Wax</h2>
+    <p>Imagine craftsmen at work in a marketplace, selling beautiful wooden carvings. The most skilled vendors sometimes display their work in shade, because shade hides the truth. Cracks and blemishes in the wood are filled with wax and polish, making a flawed piece appear perfect. Only the full sunlight reveals what is actually there.</p>
+    <p>The English word <em>sincere</em> comes from the Latin <em>sin cere</em> — meaning 'without wax.' To be sincere is to be a person who has nothing hidden, nothing filled in with performance or pretense.</p>
+
+    <div class="callout">
+      <div class="callout-header">To Be Sincere</div>
+      <div class="callout-body">
+        <p>To be without wax — nothing hidden, nothing covered up to create a false appearance.</p>
+        <p>In any community — especially a young adult community where image, social media, and comparison are constant pressures — <strong>sincerity is a radical act.</strong> It takes courage to let people see your actual self rather than the version you have curated.</p>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <p>"Let love be without hypocrisy. Abhor what is evil. Cling to what is good."</p>
+      <cite>— Romans 12:9 (NKJV)</cite>
+    </div>
+
+    <p>Sincerity in Scripture is not perfection. It is honesty before God and people — a life not built on image management.</p>
+
+    <div class="scripture">
+      <p>"But the wisdom that is from above is first pure, then peaceable, gentle, willing to yield, full of mercy and good fruits, without partiality and without hypocrisy."</p>
+      <cite>— James 3:17 (NKJV)</cite>
+    </div>
+  </div>
+
+  <!-- DAVID & PETER -->
+  <div id="david-peter" class="page-section">
+    <h2>David and Peter: God's Standard</h2>
+    <div class="people-grid">
+      <div class="person-card">
+        <div class="person-card-header">King David</div>
+        <div class="person-card-body">
+          <p>David made serious moral failures, including adultery and murder. Yet Scripture describes him as a man after God's heart because he was honest before God (Acts 13:22). He repented openly, expressed brokenness in the Psalms, and returned to God sincerely.</p>
+          <p><strong>His strength was not perfection — it was honesty before God.</strong></p>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="person-card-header">Peter</div>
+        <div class="person-card-body">
+          <p>Peter denied Jesus three times at a critical moment. Yet Jesus restored him and entrusted him with leadership in the early church. Peter was impulsive and imperfect, but he was real. Jesus did not choose a polished follower —</p>
+          <p><strong>He chose a sincere one.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout devotion">
+      <div class="callout-header">Devotional Pause — 2 minutes of silent reflection</div>
+      <div class="callout-body">
+        <p>Before continuing, take two minutes of quiet.</p>
+        <p>Ask yourself honestly: <em>Where am I filling cracks with wax — presenting a version of myself to my community, or to God, that is not completely true?</em></p>
+        <p>You do not have to share this. But you do have to answer it.</p>
+      </div>
+    </div>
+
+    <p><strong>Character failure is often not sudden — it begins with hidden cracks being covered instead of addressed.</strong></p>
+    <p>Sincerity means:</p>
+    <ul>
+      <li>Not pretending to be more spiritual than you are</li>
+      <li>Not hiding struggles behind performance</li>
+      <li>Not building identity on image</li>
+      <li>Not filling internal cracks with external polish</li>
+    </ul>
+    <p><strong>God is not calling young people to become perfect performers. He is calling them to become sincere disciples — real, honest, and transformed from the inside out.</strong></p>
+  </div>
+
+  <!-- PART 3 -->
+  <div id="part3" class="part-header">
+    <p class="part-label">Part 3</p>
+    <h2 class="part-title">The Fruit of the Spirit</h2>
+    <p class="part-subtitle">A character framework for Kingdom living</p>
+  </div>
+
+  <div class="page-section">
+    <div class="scripture">
+      <p>"But the fruit of the Spirit is love, joy, peace, longsuffering, kindness, goodness, faithfulness, gentleness, self-control. Against such there is no law."</p>
+      <cite>— Galatians 5:22-23 (NKJV)</cite>
+    </div>
+
+    <p>Notice the image: <em>fruit</em>. Not a certificate. Not a spiritual achievement. Fruit grows over time, in the right conditions, from the right root. A fruit tree does not decide to produce fruit through effort — it produces fruit because of what it is rooted in.</p>
+    <p>As young adults in the Kingdom, our task is not to manufacture good character through willpower. It is to stay rooted in Christ — through Scripture, prayer, worship, community, and obedience — so that the fruit of His Spirit grows naturally out of us.</p>
+
+    <table class="fruit-table">
+      <thead>
+        <tr>
+          <th>Fruit</th>
+          <th>What it looks like in daily life</th>
+          <th>Where it is tested in your world</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fruit-name">Love</td>
+          <td>Choosing the wellbeing of another over your own comfort, reputation, or convenience</td>
+          <td class="fruit-test">In how you treat a friend who has disappointed you</td>
+        </tr>
+        <tr>
+          <td class="fruit-name">Joy</td>
+          <td>A deep, stable gladness rooted in who God is rather than circumstances</td>
+          <td class="fruit-test">On the morning after a failure or disappointment that shook your faith</td>
+        </tr>
+        <tr>
+          <td class="fruit-name">Peace</td>
+          <td>Being a calm, grounded presence in tense situations</td>
+          <td class="fruit-test">In your home, workplace, or ministry when pressure and conflict rise</td>
+        </tr>
+        <tr>
+          <td class="fruit-name">Patience</td>
+          <td>Holding your response while trusting God's timing</td>
+          <td class="fruit-test">When God seems silent; when growth feels frustratingly slow</td>
+        </tr>
+        <tr>
+          <td class="fruit-name">Kindness</td>
+          <td>Intentionally helping or caring for others, especially unnoticed people</td>
+          <td class="fruit-test">Toward the difficult person, the outsider, or someone very different from you</td>
+        </tr>
+        <tr>
+          <td class="fruit-name">Goodness</td>
+          <td>Moral integrity in private choices, conversations, and habits</td>
+          <td class="fruit-test">When you could compromise or cut corners without any consequences</td>
+        </tr>
+        <tr>
+          <td class="fruit-name">Faithfulness</td>
+          <td>Consistently doing what you committed to do over time</td>
+          <td class="fruit-test">In your responsibilities to community, studies, work, and relationships</td>
+        </tr>
+        <tr>
+          <td class="fruit-name">Gentleness</td>
+          <td>Strength under control — correcting or leading without crushing others</td>
+          <td class="fruit-test">When someone under your influence makes a mistake</td>
+        </tr>
+        <tr>
+          <td class="fruit-name">Self-Control</td>
+          <td>Governing appetites, emotions, speech, and desires</td>
+          <td class="fruit-test">Your habits, anger, purity, and reactions when nobody is watching</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SERVANT LEADERSHIP -->
+  <div id="servant" class="page-section">
+    <h2>Servant Leadership: The Kingdom Way</h2>
+    <p>On the night before His crucifixion, Jesus — knowing He was Lord of all creation — knelt on the floor and washed the feet of twelve men, one of whom would betray Him within hours. Then He said:</p>
+
+    <div class="scripture">
+      <p>"For I have given you an example, that you should do as I have done to you."</p>
+      <cite>— John 13:15 (NKJV)</cite>
+    </div>
+
+    <p>In Kingdom culture, the greatest is the servant of all. Position is not the reward for character — it is the responsibility that character equips you to carry.</p>
+
+    <div class="callout">
+      <div class="callout-header">Illustration: The Worship Leader Who Swept the Floor</div>
+      <div class="callout-body">
+        <p>A young worship leader at a growing church was widely praised for her voice and her anointing. One Saturday before service, the building attendant was sick and the hall was dusty. She was the first to arrive.</p>
+        <p>Without announcing it, she swept the entire hall, set out the chairs, and arranged the communion table. By the time the congregation arrived, no one knew she had done it.</p>
+        <p>Years later, when the senior pastor retired and the board sought a successor, her name was the first raised — not because of her singing, but because of how she was known to behave when no one was watching.</p>
+        <p><strong>Character is always witnessed. It just takes time.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 4 -->
+  <div id="part4" class="part-header">
+    <p class="part-label">Part 4</p>
+    <h2 class="part-title">Forming Character — The Daily Walk</h2>
+    <p class="part-subtitle">No shortcuts. No programs. Only ordinary faithfulness.</p>
+  </div>
+
+  <div class="page-section">
+    <div class="scripture">
+      <p>"He who says he abides in Him ought himself also to walk just as He walked."</p>
+      <cite>— 1 John 2:6 (NKJV)</cite>
+    </div>
+
+    <p>There are no shortcuts to Godly character. There is no prayer that instantly produces it, no conference that downloads it, no program that manufactures it. Character is formed in the ordinary — in the thousand small decisions that no one records or rewards.</p>
+    <p>The Apostle Paul calls us to a 'renewing of the mind' (Romans 12:2) — a deep restructuring of how we think, what we value, and how we instinctively respond. This happens through consistent, humble, daily engagement with God and community.</p>
+  </div>
+
+  <!-- DISCIPLINES -->
+  <div id="disciplines" class="page-section">
+    <h2>Three Disciplines That Form Character</h2>
+
+    <div class="discipline-card">
+      <div class="discipline-num">1</div>
+      <div class="discipline-body">
+        <h3>Daily Immersion in Scripture</h3>
+        <p>Character is formed when God's Word consistently reshapes the way we think, respond, and live. This is the daily practice of allowing Scripture to renew your mind and reveal the kind of person God is forming you to become.</p>
+        <div class="callout" style="margin-top:1rem;">
+          <div class="callout-header">"What does the life of Jesus teach me about the person I am becoming?"</div>
+          <div class="callout-body">
+            <p>Observe how Jesus treated difficult people. How He handled pressure. How He responded to criticism. How He used power. And how He remained faithful in suffering. The goal is not only to know Scripture — the goal is to become more like Christ.</p>
+          </div>
+        </div>
+        <div class="scripture" style="margin-top:1rem;">
+          <p>"And do not be conformed to this world, but be transformed by the renewing of your mind."</p>
+          <cite>— Romans 12:2 (NKJV)</cite>
+        </div>
+      </div>
+    </div>
+
+    <div class="discipline-card">
+      <div class="discipline-num">2</div>
+      <div class="discipline-body">
+        <h3>Accountable Community</h3>
+        <p>You cannot see your own blind spots. Every person has them: unhealthy habits, pride, emotional reactions, hidden compromise, or patterns they cannot recognize alone. That is why Scripture calls believers into honest, close community.</p>
+        <div class="scripture" style="margin-top:1rem;">
+          <p>"But exhort one another daily, while it is called 'Today,' lest any of you be hardened through the deceitfulness of sin."</p>
+          <cite>— Hebrews 3:13 (NKJV)</cite>
+        </div>
+        <p>Biblical accountability is not control or criticism. It is choosing relationships where truth, encouragement, correction, and growth are welcomed. Identify two or three trusted believers — mentors or mature friends — who have permission to ask honest questions.</p>
+        <p><strong>Character grows best where honesty is safe.</strong></p>
+      </div>
+    </div>
+
+    <div class="discipline-card">
+      <div class="discipline-num">3</div>
+      <div class="discipline-body">
+        <h3>Examined Prayer</h3>
+        <p>At the end of each day, bring your actual self before God — not the polished version. Examined prayer is the practice of reflecting honestly before God:</p>
+        <ul>
+          <li>Where did I reflect Christ today?</li>
+          <li>Where did I fail?</li>
+          <li>What attitudes shaped my actions?</li>
+          <li>What needs repentance or growth?</li>
+        </ul>
+        <div class="scripture" style="margin-top:1rem;">
+          <p>"Let the words of my mouth and the meditation of my heart be acceptable in Your sight, O LORD, my strength and my Redeemer."</p>
+          <cite>— Psalm 19:14 (NKJV)</cite>
+        </div>
+        <p>This is not about guilt or self-condemnation. It is about remaining honest before God so transformation can continue. <strong>Growth begins where honesty begins.</strong></p>
+      </div>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-header">Warning: The Titanic's Rivets</div>
+      <div class="callout-body">
+        <p>When the Titanic was finally examined decades after sinking, analysts discovered that the three million rivets holding its hull together had been filled with inferior materials rather than pure steel. On the surface, the ship was flawless. Underneath, it lacked integrity.</p>
+        <p>When the iceberg came, it was not the steel hull that gave way — it was the rivets. The plates separated. The ship sank.</p>
+        <p>Many Christian leaders present a strong exterior: serving, speaking, praising. But the interior rivets — the private character — are compromised. When the iceberg comes (and it will), what holds?</p>
+        <p><strong>The good news: God is in the business of replacing inferior rivets. That is called sanctification. But it requires your honesty and cooperation.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SMALL GROUP DISCUSSION -->
+  <div id="discussion" class="part-header">
+    <p class="part-label">Activity</p>
+    <h2 class="part-title">Small Group Discussion</h2>
+    <p class="part-subtitle">Groups of 3–4 · 12–15 minutes</p>
+  </div>
+
+  <div class="page-section">
+    <div class="callout activity">
+      <div class="callout-header">Instructions</div>
+      <div class="callout-body">
+        <p>Break into groups of 3–4. Spend 12–15 minutes working through these questions together. Choose a timekeeper and someone to share one insight with the full group at the end.</p>
+      </div>
+    </div>
+
+    <ol class="reflection-q">
+      <li>
+        <strong>Fruit of the Spirit Reflection</strong>
+        Which fruit of the Spirit seems most naturally present in your life right now? Which one feels weakest or most absent? What experiences, habits, or influences may have shaped each?
+        <div class="write-lines"><span></span><span></span><span></span></div>
+      </li>
+      <li>
+        <strong>Character That Impacted You</strong>
+        Describe a moment when someone's character — not their talent, title, or skill — deeply impacted you. What specifically about them earned your respect or trust?
+        <div class="write-lines"><span></span><span></span><span></span></div>
+      </li>
+      <li>
+        <strong>Filling Cracks with Wax</strong>
+        Where in your life right now are you at greatest risk of 'filling cracks with wax' — performing character you have not yet actually formed?
+        <div class="write-lines"><span></span><span></span><span></span></div>
+      </li>
+      <li>
+        <strong>Examined Prayer</strong>
+        What would change in the next 30 days if you took seriously the discipline of examined prayer every evening?
+        <div class="write-lines"><span></span><span></span><span></span></div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- PERSONAL REFLECTION -->
+  <div id="reflection" class="page-section">
+    <div class="part-label" style="margin-bottom:0.7rem;">Personal Reflection</div>
+    <h2>Between You and God</h2>
+    <div class="callout activity" style="margin-bottom:2rem;">
+      <div class="callout-header">Instructions</div>
+      <div class="callout-body"><p>Take 8–10 minutes in quiet. These questions are between you and God. Write honestly.</p></div>
+    </div>
+
+    <ol class="reflection-q">
+      <li>
+        <strong>Your Private Self</strong>
+        Who are you when nobody else is watching? In what ways does your private life differ from your public image?
+        <div class="write-lines"><span></span><span></span><span></span><span></span></div>
+      </li>
+      <li>
+        <strong>Inferior Rivets</strong>
+        What 'inferior rivets' currently exist in your inner life — hidden areas of compromise, weakness, inconsistency, or unresolved struggle?
+        <div class="write-lines"><span></span><span></span><span></span><span></span></div>
+      </li>
+      <li>
+        <strong>An Honest Conversation with Jesus</strong>
+        Imagine Jesus sitting with you right now, speaking about your character with perfect love and truth. What areas do you think He would encourage, correct, heal, or invite you to grow in?
+        <div class="write-lines"><span></span><span></span><span></span><span></span></div>
+      </li>
+      <li>
+        <strong>One Practical Step</strong>
+        What is one specific step you will take this week to allow God to form your character rather than managing your image?
+        <div class="write-lines"><span></span><span></span><span></span><span></span></div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- CLOSING DECLARATION -->
+  <div id="declaration" class="page-section">
+    <div class="declaration">
+      <h3>Closing Declaration — Read Aloud Together</h3>
+      <blockquote>
+        "I choose to be known not by my performance, but by my character. I will allow the Holy Spirit to form in me what I cannot manufacture myself. I commit to honesty before God, authenticity in community, and consistency in private. I am a disciple in formation — not yet finished, but fully surrendered."
+      </blockquote>
+    </div>
+
+    <div class="scripture">
+      <p>"Let this mind be in you which was also in Christ Jesus."</p>
+      <cite>— Philippians 2:5 (NKJV)</cite>
+    </div>
+  </div>
+
+</main>
+
+<footer id="footer">
+  <span>Discipleship Curriculum</span> &nbsp;·&nbsp; Module 1: Demonstrating Godly Character &nbsp;·&nbsp; <span>Pst. Daniel Thuo</span> &nbsp;·&nbsp; 2025 Edition
+</footer>
+
+<button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('top-btn').classList.toggle('show', window.scrollY > 400);
+  });
+
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('#nav a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+
+  navLinks.forEach(a => a.addEventListener('click', () => {
+    document.getElementById('nav').classList.remove('open');
+  }));
+
+  const pageSections = document.querySelectorAll('.page-section');
+  const sectionObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.animationPlayState = 'running';
+        sectionObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.05 });
+  pageSections.forEach(s => {
+    s.style.animationPlayState = 'paused';
+    sectionObs.observe(s);
+  });
+</script>
+</body>
+</html>
